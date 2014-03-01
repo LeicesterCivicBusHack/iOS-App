@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 //#import "HomeScreenViewController.h"
 #import "NewsViewController.h"
+#import "HomeScreenViewController.h"
 
 // Drawer Stuff
 #import "MMDrawerController.h"
@@ -52,7 +53,10 @@
     // Starts the iBeacon Monitoring
     // [self startBeaconMonitoring];
     
-    NewsViewController *vc = [[NewsViewController alloc] initWithNibName:@"NewsViewController" bundle:nil];
+//    NewsViewController *vc = [[NewsViewController alloc] initWithNibName:@"NewsViewController" bundle:nil];
+//
+    HomeScreenViewController *vc = [[HomeScreenViewController alloc] initWithNibName:@"HomeScreenViewController" bundle:nil];
+    
     
     MMNavigationController *nc = [[MMNavigationController alloc] initWithRootViewController:vc];
     nc.navigationBar.translucent = NO;

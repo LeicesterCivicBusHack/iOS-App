@@ -11,4 +11,11 @@
 
 @interface HomeScreenViewController : UIViewController
 
+
+
+-(IBAction)btnReport:(id)sender;
+-(IBAction)btnHistory:(id)sender;
+-(IBAction)btnRoutes:(id)sender;
+
+
 @end

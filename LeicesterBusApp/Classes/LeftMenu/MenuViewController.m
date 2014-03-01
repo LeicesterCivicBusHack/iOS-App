@@ -71,7 +71,7 @@
   
     [self.navigationController.navigationBar setTitleTextAttributes:navBarTitleDict];
     
-    self.arrayOptions = @[@"Home", @"Report", @"Routes", @"History", @"About"];
+    self.arrayOptions = @[@"Home", @"Report", @"Routes", @"History", @"About", @"Testing"];
     
     [self.view setBackgroundColor:[UIColor clearColor]];
     
@@ -161,6 +161,11 @@
             
         case 4:     // About
         {
+        }
+            break;
+        case 5:     // About
+        {
+            NSLog(@"Hello testing");
         }
             break;
         default:

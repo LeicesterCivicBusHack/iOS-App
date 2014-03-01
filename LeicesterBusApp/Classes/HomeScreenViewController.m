@@ -9,6 +9,8 @@
 #import "MenuViewController.h"
 #import "MMDrawerBarButtonItem.h"
 
+#import "RoutesMenuViewController.h"
+
 
 @interface HomeScreenViewController ()
 
@@ -33,6 +35,21 @@
     
     [self setupLeftMenuButton];
 }
+
+
+-(IBAction)btnReport:(id)sender {
+    
+}
+-(IBAction)btnHistory:(id)sender {
+    
+}
+
+
+-(IBAction)btnRoutes:(id)sender {
+    RoutesMenuViewController *vc = [[RoutesMenuViewController alloc] initWithNibName:@"RoutesMenuViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 
 #pragma mark - Left Menu Set-up
