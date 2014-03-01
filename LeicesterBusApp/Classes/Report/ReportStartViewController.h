@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) CLGeocoder *geocoder;
 
-
+-(IBAction)btnStop:(id)sender;
 
 
 @end

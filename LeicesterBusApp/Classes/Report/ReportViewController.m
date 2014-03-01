@@ -161,4 +161,23 @@
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"startButton"]) {
+     
+        NSLog(@"Start Tapped");
+        
+        
+    }
+    
+    
+    if ([[segue identifier] isEqualToString:@"selectCompany"]) {
+     
+        NSLog(@"Company Tapped");
+        
+    }
+    
+}
+
+
 @end

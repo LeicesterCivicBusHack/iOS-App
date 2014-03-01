@@ -13,8 +13,8 @@
 #include <CommonCrypto/CommonDigest.h>
 
 #define APIToken @"1234abcd"
-#define kAPIPath @"stops.js"
-#define kBaseURL @"https://mistabus.subora.com:3000/"
+#define kAPIPath @"stops"
+#define kBaseURL @"http://mistabus.subora.com:3000/"
 
 @implementation BusApiClient
 
@@ -101,37 +101,45 @@
 
 -(void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock
 {
-    NSData* uploadFile = nil;
-    if ([params objectForKey:@"file"]) {
-        uploadFile = (NSData*)[params objectForKey:@"file"];
-        [params removeObjectForKey:@"file"];
-    }
+//    NSData* uploadFile = nil;
+//    if ([params objectForKey:@"file"]) {
+//        uploadFile = (NSData*)[params objectForKey:@"file"];
+//        [params removeObjectForKey:@"file"];
+//    }
     
     /*
      Attach the MD5 Key which was captured during login
      */
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *key = [defaults objectForKey:@"key"];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *key = [defaults objectForKey:@"key"];
+//    
+//    if ([key length] != 0) {
+//        [params setObject:key forKey:@"key"];
+//    }
     
-    if ([key length] != 0) {
-        [params setObject:key forKey:@"key"];
-    }
     
-    NSMutableURLRequest *apiRequest =
-    [self multipartFormRequestWithMethod:@"POST"
-                                    path:kAPIPath parameters:params
-               constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
-                   if (uploadFile) {
-                       [formData appendPartWithFileData:uploadFile
-                                                   name:@"user_file"
-                                               fileName:@"photo.jpg"
-                                               mimeType:@"image/jpeg"];
-                   }
-               }];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
+
+    NSMutableURLRequest *apiRequest = [httpClient requestWithMethod:@"GET" path:@"http://mistabus.subora.com:3000/stops" parameters:params];
+    
+   
+//    [self multipartFormRequestWithMethod:@"GET"
+//                                    path:kAPIPath parameters:params
+//               constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
+////                   if (uploadFile) {
+////                       [formData appendPartWithFileData:uploadFile
+////                                                   name:@"user_file"
+////                                               fileName:@"photo.jpg"
+////                                               mimeType:@"image/jpeg"];
+////                   }
+//               }];
     
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:apiRequest];
+    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
+    
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         completionBlock(responseObject);
+    
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
     }];

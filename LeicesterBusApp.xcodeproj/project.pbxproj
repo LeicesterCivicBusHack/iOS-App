@@ -31,6 +31,8 @@
 		93B79F5418C23695000365DC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F5318C23695000365DC /* Reachability.m */; };
 		93B79F5818C23AD5000365DC /* ReportStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F5618C23AD5000365DC /* ReportStartViewController.m */; };
 		93B79F5918C23AD5000365DC /* ReportStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F5718C23AD5000365DC /* ReportStartViewController.xib */; };
+		93B79F5E18C265C9000365DC /* BusStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F5D18C265C9000365DC /* BusStopAnnotation.m */; };
+		93B79F6118C26644000365DC /* BusStopLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F6018C26644000365DC /* BusStopLocation.m */; };
 		93BB3F3D18C205B2007F9FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EDB18C205B2007F9FD2 /* AppDelegate.m */; };
 		93BB3F4018C205B2007F9FD2 /* HomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EE218C205B2007F9FD2 /* HomeScreenViewController.m */; };
 		93BB3F4118C205B2007F9FD2 /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EE318C205B2007F9FD2 /* HomeScreenViewController.xib */; };
@@ -108,6 +110,10 @@
 		93B79F5518C23AD5000365DC /* ReportStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReportStartViewController.h; path = Report/ReportStartViewController.h; sourceTree = "<group>"; };
 		93B79F5618C23AD5000365DC /* ReportStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReportStartViewController.m; path = Report/ReportStartViewController.m; sourceTree = "<group>"; };
 		93B79F5718C23AD5000365DC /* ReportStartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReportStartViewController.xib; path = Report/ReportStartViewController.xib; sourceTree = "<group>"; };
+		93B79F5C18C265C9000365DC /* BusStopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusStopAnnotation.h; path = MapPlaceMarks/BusStopAnnotation.h; sourceTree = "<group>"; };
+		93B79F5D18C265C9000365DC /* BusStopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusStopAnnotation.m; path = MapPlaceMarks/BusStopAnnotation.m; sourceTree = "<group>"; };
+		93B79F5F18C26644000365DC /* BusStopLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusStopLocation.h; path = MapPlaceMarks/BusStopLocation.h; sourceTree = "<group>"; };
+		93B79F6018C26644000365DC /* BusStopLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusStopLocation.m; path = MapPlaceMarks/BusStopLocation.m; sourceTree = "<group>"; };
 		93BB3EDA18C205B2007F9FD2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93BB3EDB18C205B2007F9FD2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		93BB3EE118C205B2007F9FD2 /* HomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreenViewController.h; sourceTree = "<group>"; };
@@ -300,6 +306,17 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
+		93B79F5A18C26572000365DC /* MapPlacemarks */ = {
+			isa = PBXGroup;
+			children = (
+				93B79F5C18C265C9000365DC /* BusStopAnnotation.h */,
+				93B79F5D18C265C9000365DC /* BusStopAnnotation.m */,
+				93B79F5F18C26644000365DC /* BusStopLocation.h */,
+				93B79F6018C26644000365DC /* BusStopLocation.m */,
+			);
+			name = MapPlacemarks;
+			sourceTree = "<group>";
+		};
 		93BB3ED918C205B2007F9FD2 /* LeicesterBusApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +340,7 @@
 		93BB3EDC18C205B2007F9FD2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93B79F5A18C26572000365DC /* MapPlacemarks */,
 				93B79F4E18C235BC000365DC /* Networking */,
 				93B79F4618C22B7D000365DC /* NearestBusStop */,
 				93B79F3D18C22387000365DC /* Report */,
@@ -332,7 +350,6 @@
 				93BB3EE218C205B2007F9FD2 /* HomeScreenViewController.m */,
 				93BB3EE318C205B2007F9FD2 /* HomeScreenViewController.xib */,
 				93BB3EE518C205B2007F9FD2 /* LeftMenu */,
-				93BB3EE818C205B2007F9FD2 /* Medications */,
 				93BB3EE918C205B2007F9FD2 /* News */,
 				93BB3EFA18C205B2007F9FD2 /* Options */,
 			);
@@ -346,13 +363,6 @@
 				93BB3EE718C205B2007F9FD2 /* MenuViewController.m */,
 			);
 			path = LeftMenu;
-			sourceTree = "<group>";
-		};
-		93BB3EE818C205B2007F9FD2 /* Medications */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Medications;
 			sourceTree = "<group>";
 		};
 		93BB3EE918C205B2007F9FD2 /* News */ = {
@@ -603,6 +613,7 @@
 				93BB3F6418C205B2007F9FD2 /* LeicesterBusApp.xcdatamodeld in Sources */,
 				93B79F2F18C21E83000365DC /* RoutesMenuViewController.m in Sources */,
 				93BB3F5018C205B2007F9FD2 /* AFImageRequestOperation.m in Sources */,
+				93B79F6118C26644000365DC /* BusStopLocation.m in Sources */,
 				93BB3F6518C205B2007F9FD2 /* main.m in Sources */,
 				93BB3F5918C205B2007F9FD2 /* ImageCache.m in Sources */,
 				93BB3F6618C205B2007F9FD2 /* NewsEntry.m in Sources */,
@@ -628,6 +639,7 @@
 				93B79F5118C235ED000365DC /* BusApiClient.m in Sources */,
 				93BB3F4B18C205B2007F9FD2 /* NewsViewController.m in Sources */,
 				93BB3F4218C205B2007F9FD2 /* MenuViewController.m in Sources */,
+				93B79F5E18C265C9000365DC /* BusStopAnnotation.m in Sources */,
 				93BB3F4318C205B2007F9FD2 /* CustomCellNews.m in Sources */,
 				93BB3F5218C205B2007F9FD2 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				93BB3F4F18C205B2007F9FD2 /* AFHTTPRequestOperation.m in Sources */,

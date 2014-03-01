@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "BusStopLocation.h"
 
 
 @interface NearestStopsViewController : UIViewController <MKMapViewDelegate, UITextViewDelegate, UISearchBarDelegate, UIPopoverControllerDelegate, UIActionSheetDelegate> {
@@ -17,6 +18,7 @@
 }
 
 
+@property (nonatomic, strong) BusStopLocation *selectedLocation;
 
 @property (nonatomic, strong) CLGeocoder *geocoder;
 
