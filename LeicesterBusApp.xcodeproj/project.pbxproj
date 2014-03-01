@@ -22,6 +22,9 @@
 		93B79F3518C2203D000365DC /* RoutesWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F3318C2203D000365DC /* RoutesWebViewController.xib */; };
 		93B79F3B18C22332000365DC /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F3918C22332000365DC /* AboutViewController.m */; };
 		93B79F3C18C22332000365DC /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F3A18C22332000365DC /* AboutViewController.xib */; };
+		93B79F4118C2239D000365DC /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F3F18C2239D000365DC /* ReportViewController.m */; };
+		93B79F4218C2239D000365DC /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F4018C2239D000365DC /* ReportViewController.xib */; };
+		93B79F4418C22451000365DC /* ReportStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F4318C22451000365DC /* ReportStoryboard.storyboard */; };
 		93BB3F3D18C205B2007F9FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EDB18C205B2007F9FD2 /* AppDelegate.m */; };
 		93BB3F4018C205B2007F9FD2 /* HomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EE218C205B2007F9FD2 /* HomeScreenViewController.m */; };
 		93BB3F4118C205B2007F9FD2 /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EE318C205B2007F9FD2 /* HomeScreenViewController.xib */; };
@@ -85,6 +88,10 @@
 		93B79F3818C22332000365DC /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		93B79F3918C22332000365DC /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		93B79F3A18C22332000365DC /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		93B79F3E18C2239D000365DC /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReportViewController.h; path = Report/ReportViewController.h; sourceTree = "<group>"; };
+		93B79F3F18C2239D000365DC /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReportViewController.m; path = Report/ReportViewController.m; sourceTree = "<group>"; };
+		93B79F4018C2239D000365DC /* ReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReportViewController.xib; path = Report/ReportViewController.xib; sourceTree = "<group>"; };
+		93B79F4318C22451000365DC /* ReportStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ReportStoryboard.storyboard; path = Report/ReportStoryboard.storyboard; sourceTree = "<group>"; };
 		93BB3EDA18C205B2007F9FD2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93BB3EDB18C205B2007F9FD2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		93BB3EE118C205B2007F9FD2 /* HomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreenViewController.h; sourceTree = "<group>"; };
@@ -241,6 +248,24 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		93B79F3D18C22387000365DC /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				93B79F3E18C2239D000365DC /* ReportViewController.h */,
+				93B79F3F18C2239D000365DC /* ReportViewController.m */,
+				93B79F4018C2239D000365DC /* ReportViewController.xib */,
+				93B79F4318C22451000365DC /* ReportStoryboard.storyboard */,
+			);
+			name = Report;
+			sourceTree = "<group>";
+		};
+		93B79F4618C22B7D000365DC /* NearestBusStop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NearestBusStop;
+			sourceTree = "<group>";
+		};
 		93BB3ED918C205B2007F9FD2 /* LeicesterBusApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +289,8 @@
 		93BB3EDC18C205B2007F9FD2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93B79F4618C22B7D000365DC /* NearestBusStop */,
+				93B79F3D18C22387000365DC /* Report */,
 				93B79F3718C22332000365DC /* About */,
 				93B79F2B18C21E5F000365DC /* Routes */,
 				93BB3EE118C205B2007F9FD2 /* HomeScreenViewController.h */,
@@ -507,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BB3F4A18C205B2007F9FD2 /* NewsDetailViewController.xib in Resources */,
+				93B79F4418C22451000365DC /* ReportStoryboard.storyboard in Resources */,
 				93BB3F6218C205B2007F9FD2 /* Images.xcassets in Resources */,
 				93B79F3518C2203D000365DC /* RoutesWebViewController.xib in Resources */,
 				93BB3F4D18C205B2007F9FD2 /* InfoPlist.strings in Resources */,
@@ -514,6 +542,7 @@
 				93BB3F4818C205B2007F9FD2 /* NewsHeadlineCell.xib in Resources */,
 				93B79F3C18C22332000365DC /* AboutViewController.xib in Resources */,
 				93BB3F4118C205B2007F9FD2 /* HomeScreenViewController.xib in Resources */,
+				93B79F4218C2239D000365DC /* ReportViewController.xib in Resources */,
 				93B79F3018C21E83000365DC /* RoutesMenuViewController.xib in Resources */,
 				93BB3F4418C205B2007F9FD2 /* CustomCellNews.xib in Resources */,
 				93BB3F4618C205B2007F9FD2 /* NewsCustomCell.xib in Resources */,
@@ -543,6 +572,7 @@
 				93BB3F4718C205B2007F9FD2 /* NewsHeadlineCell.m in Sources */,
 				93BB3F5118C205B2007F9FD2 /* AFJSONRequestOperation.m in Sources */,
 				93BB3F5F18C205B2007F9FD2 /* UIViewController+MMDrawerController.m in Sources */,
+				93B79F4118C2239D000365DC /* ReportViewController.m in Sources */,
 				93BB3F3D18C205B2007F9FD2 /* AppDelegate.m in Sources */,
 				93BB3F5618C205B2007F9FD2 /* UIImageView+AFNetworking.m in Sources */,
 				93BB3F4918C205B2007F9FD2 /* NewsDetailViewController.m in Sources */,

@@ -38,6 +38,10 @@
 
 
 -(IBAction)btnReport:(id)sender {
+    UIStoryboard *reportStoryBoard = [UIStoryboard storyboardWithName:@"ReportStoryboard" bundle:nil];
+    UIViewController *vc = [reportStoryBoard instantiateInitialViewController];
+
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 -(IBAction)btnHistory:(id)sender {
