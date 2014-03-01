@@ -18,6 +18,10 @@
 @property (nonatomic, strong) NSDate *selectedDate;
 
 
+@property (nonatomic, weak) IBOutlet UITextField *txtBusNumber;
+@property (nonatomic, weak) IBOutlet UILabel *lblBusCompany;
+
+
 -(IBAction)pickerDateChanged:(UIDatePicker *)sender;
 
 

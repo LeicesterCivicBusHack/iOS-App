@@ -23,7 +23,6 @@
 		93B79F3B18C22332000365DC /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F3918C22332000365DC /* AboutViewController.m */; };
 		93B79F3C18C22332000365DC /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F3A18C22332000365DC /* AboutViewController.xib */; };
 		93B79F4118C2239D000365DC /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F3F18C2239D000365DC /* ReportViewController.m */; };
-		93B79F4218C2239D000365DC /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F4018C2239D000365DC /* ReportViewController.xib */; };
 		93B79F4418C22451000365DC /* ReportStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F4318C22451000365DC /* ReportStoryboard.storyboard */; };
 		93B79F4A18C22BE6000365DC /* NearestStopsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F4818C22BE6000365DC /* NearestStopsViewController.m */; };
 		93B79F4B18C22BE6000365DC /* NearestStopsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F4918C22BE6000365DC /* NearestStopsViewController.xib */; };
@@ -97,7 +96,6 @@
 		93B79F3A18C22332000365DC /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		93B79F3E18C2239D000365DC /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReportViewController.h; path = Report/ReportViewController.h; sourceTree = "<group>"; };
 		93B79F3F18C2239D000365DC /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReportViewController.m; path = Report/ReportViewController.m; sourceTree = "<group>"; };
-		93B79F4018C2239D000365DC /* ReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReportViewController.xib; path = Report/ReportViewController.xib; sourceTree = "<group>"; };
 		93B79F4318C22451000365DC /* ReportStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ReportStoryboard.storyboard; path = Report/ReportStoryboard.storyboard; sourceTree = "<group>"; };
 		93B79F4718C22BE6000365DC /* NearestStopsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NearestStopsViewController.h; path = NearestStop/NearestStopsViewController.h; sourceTree = "<group>"; };
 		93B79F4818C22BE6000365DC /* NearestStopsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NearestStopsViewController.m; path = NearestStop/NearestStopsViewController.m; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			children = (
 				93B79F3E18C2239D000365DC /* ReportViewController.h */,
 				93B79F3F18C2239D000365DC /* ReportViewController.m */,
-				93B79F4018C2239D000365DC /* ReportViewController.xib */,
 				93B79F4318C22451000365DC /* ReportStoryboard.storyboard */,
 				93B79F5518C23AD5000365DC /* ReportStartViewController.h */,
 				93B79F5618C23AD5000365DC /* ReportStartViewController.m */,
@@ -585,7 +582,6 @@
 				93B79F3C18C22332000365DC /* AboutViewController.xib in Resources */,
 				93BB3F4118C205B2007F9FD2 /* HomeScreenViewController.xib in Resources */,
 				93B79F4B18C22BE6000365DC /* NearestStopsViewController.xib in Resources */,
-				93B79F4218C2239D000365DC /* ReportViewController.xib in Resources */,
 				93B79F3018C21E83000365DC /* RoutesMenuViewController.xib in Resources */,
 				93BB3F4418C205B2007F9FD2 /* CustomCellNews.xib in Resources */,
 				93BB3F4618C205B2007F9FD2 /* NewsCustomCell.xib in Resources */,

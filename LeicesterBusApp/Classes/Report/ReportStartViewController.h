@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface ReportStartViewController : UIViewController
+
+
+@interface ReportStartViewController : UIViewController {
+    CLGeocoder *_gecoder;
+}
+
+@property (nonatomic, strong) CLGeocoder *geocoder;
+
+
+
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ReportStartViewController.h"
+#import <MapKit/MapKit.h>
 #import "BusApiClient.h"
 
 
@@ -28,12 +29,15 @@
 #pragma mark - 
 - (void)sendReport {
     
+   
+    
+    
     if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
         
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                        @"nearest",@"command",
-                                       @"", @"long",
-                                       @"", @"lat", nil];
+                                       @"-1.150311", @"long",
+                                       @"52.630365", @"lat", nil];
         
         NSLog(@"Params %@", params);
         
@@ -45,6 +49,7 @@
     
     
 }
+
 
 
 
