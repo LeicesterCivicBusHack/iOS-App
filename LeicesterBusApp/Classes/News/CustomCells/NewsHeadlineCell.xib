@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A584" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsHeadlineCell" rowHeight="226" id="2" customClass="NewsHeadlineCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2" id="OYH-Uq-RfV">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="225" id="12"/>
+                            <constraint firstAttribute="width" constant="320" id="NEd-Ha-iy9"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="210" id="PmN-RT-UTy"/>
+                        </constraints>
+                    </imageView>
+                    <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13">
+                        <rect key="frame" x="0.0" y="167" width="320" height="58"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="46">
+                                <rect key="frame" x="12" y="11" width="302" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="302" id="69"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.8980392814" green="0.1960784495" blue="0.1764705926" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKF-Vd-Mwe">
+                                <rect key="frame" x="0.0" y="0.0" width="4" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.8980392814" green="0.1960784495" blue="0.1764705926" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="46" firstAttribute="top" secondItem="13" secondAttribute="top" constant="11" id="63"/>
+                            <constraint firstItem="46" firstAttribute="leading" secondItem="13" secondAttribute="leading" constant="12" id="71"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="13" firstAttribute="leading" secondItem="OYH-Uq-RfV" secondAttribute="leading" id="Cjt-Tx-mv3"/>
+                    <constraint firstItem="13" firstAttribute="top" secondItem="OYH-Uq-RfV" secondAttribute="top" constant="167" id="E2E-Uy-QfH"/>
+                    <constraint firstItem="13" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="FuC-Ze-gc6"/>
+                    <constraint firstAttribute="bottom" secondItem="13" secondAttribute="bottom" id="OrC-zL-oCZ"/>
+                    <constraint firstItem="13" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="X2Y-up-bAC"/>
+                    <constraint firstItem="13" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="del-Ac-WQN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblTitle" destination="46" id="50"/>
+                <outlet property="newsImage" destination="3" id="45"/>
+                <outlet property="titleView" destination="13" id="51"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
