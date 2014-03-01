@@ -67,10 +67,10 @@
     
     //-- set up the data objects
     NSString *textObject = _newsEntry.title;
-    NSString *urlString = [NSString stringWithFormat:@"http://www.gmb.org.uk/%@", _newsEntry.link];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.mistabus.co.uk/%@", _newsEntry.link];
     
     NSURL *url = [NSURL URLWithString:urlString];
-    //    UIImage *image = [UIImage imageNamed:@"gmb-logo.png"];
+
     NSArray *activityItems = [NSArray arrayWithObjects:textObject, url,  nil];
     
     //-- initialising the activity view controller

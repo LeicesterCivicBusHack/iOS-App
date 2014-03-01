@@ -190,10 +190,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1" y="29"/>
         </scene>
-        <!--View Controller-->
+        <!--Report Start View Controller-->
         <scene sceneID="XFE-HP-e4L">
             <objects>
-                <viewController id="8D6-03-LAb" sceneMemberID="viewController">
+                <viewController id="8D6-03-LAb" customClass="ReportStartViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U6X-9c-vPp"/>
                         <viewControllerLayoutGuide type="bottom" id="RHf-Nx-mth"/>

@@ -11,6 +11,8 @@
 
 #import "RoutesMenuViewController.h"
 
+// Nearest Bus Stop
+#import "NearestStopsViewController.h"
 
 @interface HomeScreenViewController ()
 
@@ -54,7 +56,11 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
+- (IBAction)btnNearestStop:(id)sender {
+    NearestStopsViewController *vc = [[NearestStopsViewController alloc] initWithNibName:@"NearestStopsViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma mark - Left Menu Set-up
 -(void)setupLeftMenuButton{

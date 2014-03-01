@@ -1,6 +1,5 @@
 //
 //  NewsEntry.m
-//  GMB
 //
 //  Created by Aaron Wardle on 22/04/2013.
 //  Copyright (c) 2013 spcs. All rights reserved.

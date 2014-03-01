@@ -335,7 +335,7 @@
     NewsDetailViewController *vc = [[NewsDetailViewController alloc] initWithNibName:@"NewsDetailViewController" bundle:nil];
     
     vc.newsEntry = entry;
-    vc.title = @"GMB News";
+    vc.title = @"News";
     
     [[self navigationController] pushViewController:vc animated:YES];
 }

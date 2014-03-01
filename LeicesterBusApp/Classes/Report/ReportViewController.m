@@ -7,6 +7,9 @@
 //
 
 #import "ReportViewController.h"
+#import "AFNetworking.h"
+#import "BusApiClient.h"
+
 //
 //#define kNameFieldIndex         0
 //#define kNameFieldHeight        88
@@ -132,5 +135,29 @@
     _labelSelectedTime.text = [_dateFormatter stringFromDate:sender.date];
     _selectedDate = sender.date;
 }
+
+#pragma mark - 
+#pragma mark - Report Button
+
+- (void)sendReport {
+    
+    if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
+        
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"nearest",@"command",
+                                       @"", @"long",
+                                       @"", @"lat", nil];
+        
+        NSLog(@"Params %@", params);
+        
+        [[BusApiClient sharedInstance] commandWithParams:params onCompletion:^(NSDictionary *json) {
+            NSLog(@"Json Response %@", json);
+        }];
+    }
+    
+    
+      
+}
+
 
 @end

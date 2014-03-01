@@ -16,6 +16,6 @@
 -(IBAction)btnReport:(id)sender;
 -(IBAction)btnHistory:(id)sender;
 -(IBAction)btnRoutes:(id)sender;
-
+- (IBAction)btnNearestStop:(id)sender;
 
 @end

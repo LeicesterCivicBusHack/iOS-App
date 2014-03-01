@@ -1,6 +1,6 @@
 //
 //  getNews.m
-//  GMB
+
 //
 //  Created by Aaron Wardle on 06/01/2014.
 //  Copyright (c) 2014 spcs. All rights reserved.
