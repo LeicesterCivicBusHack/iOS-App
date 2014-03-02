@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectCompanyTableViewController.h"
 
-@interface ReportViewController : UITableViewController
+
+@interface ReportViewController : UITableViewController <SelectCompanyDelegate>
 
 @property (assign) BOOL datePickerIsShowing;
 @property (nonatomic, weak) IBOutlet UILabel *labelSelectedTime;

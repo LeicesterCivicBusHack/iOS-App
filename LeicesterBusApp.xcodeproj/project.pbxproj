@@ -33,6 +33,7 @@
 		93B79F5918C23AD5000365DC /* ReportStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B79F5718C23AD5000365DC /* ReportStartViewController.xib */; };
 		93B79F5E18C265C9000365DC /* BusStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F5D18C265C9000365DC /* BusStopAnnotation.m */; };
 		93B79F6118C26644000365DC /* BusStopLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F6018C26644000365DC /* BusStopLocation.m */; };
+		93B79F6418C275E5000365DC /* SelectCompanyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F6318C275E5000365DC /* SelectCompanyTableViewController.m */; };
 		93BB3F3D18C205B2007F9FD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EDB18C205B2007F9FD2 /* AppDelegate.m */; };
 		93BB3F4018C205B2007F9FD2 /* HomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EE218C205B2007F9FD2 /* HomeScreenViewController.m */; };
 		93BB3F4118C205B2007F9FD2 /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EE318C205B2007F9FD2 /* HomeScreenViewController.xib */; };
@@ -114,6 +115,8 @@
 		93B79F5D18C265C9000365DC /* BusStopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusStopAnnotation.m; path = MapPlaceMarks/BusStopAnnotation.m; sourceTree = "<group>"; };
 		93B79F5F18C26644000365DC /* BusStopLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusStopLocation.h; path = MapPlaceMarks/BusStopLocation.h; sourceTree = "<group>"; };
 		93B79F6018C26644000365DC /* BusStopLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusStopLocation.m; path = MapPlaceMarks/BusStopLocation.m; sourceTree = "<group>"; };
+		93B79F6218C275E5000365DC /* SelectCompanyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectCompanyTableViewController.h; path = Report/SelectCompanyTableViewController.h; sourceTree = "<group>"; };
+		93B79F6318C275E5000365DC /* SelectCompanyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectCompanyTableViewController.m; path = Report/SelectCompanyTableViewController.m; sourceTree = "<group>"; };
 		93BB3EDA18C205B2007F9FD2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93BB3EDB18C205B2007F9FD2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		93BB3EE118C205B2007F9FD2 /* HomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreenViewController.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 				93B79F5518C23AD5000365DC /* ReportStartViewController.h */,
 				93B79F5618C23AD5000365DC /* ReportStartViewController.m */,
 				93B79F5718C23AD5000365DC /* ReportStartViewController.xib */,
+				93B79F6218C275E5000365DC /* SelectCompanyTableViewController.h */,
+				93B79F6318C275E5000365DC /* SelectCompanyTableViewController.m */,
 			);
 			name = Report;
 			sourceTree = "<group>";
@@ -351,7 +356,6 @@
 				93BB3EE318C205B2007F9FD2 /* HomeScreenViewController.xib */,
 				93BB3EE518C205B2007F9FD2 /* LeftMenu */,
 				93BB3EE918C205B2007F9FD2 /* News */,
-				93BB3EFA18C205B2007F9FD2 /* Options */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -395,13 +399,6 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
-		93BB3EFA18C205B2007F9FD2 /* Options */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Options;
-			sourceTree = "<group>";
-		};
 		93BB3EFE18C205B2007F9FD2 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,7 +408,6 @@
 				93BB3F1C18C205B2007F9FD2 /* getNews.m */,
 				93BB3F1D18C205B2007F9FD2 /* ImageCache.h */,
 				93BB3F1E18C205B2007F9FD2 /* ImageCache.m */,
-				93BB3F1F18C205B2007F9FD2 /* KKPasscodeLock */,
 				93BB3F2118C205B2007F9FD2 /* MMDrawerController */,
 				93BB3F2F18C205B2007F9FD2 /* NSDictionary+Utility.h */,
 				93BB3F3018C205B2007F9FD2 /* NSDictionary+Utility.m */,
@@ -464,21 +460,6 @@
 				93BB3F1918C205B2007F9FD2 /* ESTBeaconUpdateInfo.h */,
 			);
 			path = Headers;
-			sourceTree = "<group>";
-		};
-		93BB3F1F18C205B2007F9FD2 /* KKPasscodeLock */ = {
-			isa = PBXGroup;
-			children = (
-				93BB3F2018C205B2007F9FD2 /* src */,
-			);
-			path = KKPasscodeLock;
-			sourceTree = "<group>";
-		};
-		93BB3F2018C205B2007F9FD2 /* src */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		93BB3F2118C205B2007F9FD2 /* MMDrawerController */ = {
@@ -622,6 +603,7 @@
 				93B79F4A18C22BE6000365DC /* NearestStopsViewController.m in Sources */,
 				93BB3F4718C205B2007F9FD2 /* NewsHeadlineCell.m in Sources */,
 				93B79F5818C23AD5000365DC /* ReportStartViewController.m in Sources */,
+				93B79F6418C275E5000365DC /* SelectCompanyTableViewController.m in Sources */,
 				93BB3F5118C205B2007F9FD2 /* AFJSONRequestOperation.m in Sources */,
 				93BB3F5F18C205B2007F9FD2 /* UIViewController+MMDrawerController.m in Sources */,
 				93B79F4118C2239D000365DC /* ReportViewController.m in Sources */,

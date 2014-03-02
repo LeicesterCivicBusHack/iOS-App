@@ -64,24 +64,28 @@
 
 -(void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock onFailure:(JSONResponseBlock)failureBlock {
     
-    NSData* uploadFile = nil;
-    if ([params objectForKey:@"file"]) {
-        uploadFile = (NSData*)[params objectForKey:@"file"];
-        [params removeObjectForKey:@"file"];
-    }
+//    NSData* uploadFile = nil;
+//    if ([params objectForKey:@"file"]) {
+//        uploadFile = (NSData*)[params objectForKey:@"file"];
+//        [params removeObjectForKey:@"file"];
+//    }
+//    
+//    
+//    NSMutableURLRequest *apiRequest =
+//    [self multipartFormRequestWithMethod:@"POST"
+//                                    path:kAPIPath parameters:params
+//               constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
+//                   if (uploadFile) {
+//                       [formData appendPartWithFileData:uploadFile
+//                                                   name:@"file"
+//                                               fileName:@"photo.jpg"
+//                                               mimeType:@"image/jpeg"];
+//                   }
+//               }];
+
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    
-    NSMutableURLRequest *apiRequest =
-    [self multipartFormRequestWithMethod:@"POST"
-                                    path:kAPIPath parameters:params
-               constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
-                   if (uploadFile) {
-                       [formData appendPartWithFileData:uploadFile
-                                                   name:@"file"
-                                               fileName:@"photo.jpg"
-                                               mimeType:@"image/jpeg"];
-                   }
-               }];
+    NSMutableURLRequest *apiRequest = [httpClient requestWithMethod:@"GET" path:@"http://mistabus.subora.com:3000/stops" parameters:params];
     
     
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:apiRequest];

@@ -41,9 +41,38 @@
     
     _mapView.showsUserLocation=TRUE;
     
+    self.navigationController.navigationBar.topItem.title = @"";
     
+    self.navigationItem.rightBarButtonItem = [self createGPSButton];
     [self getUsersLocation];
 
+}
+
+
+- (UIBarButtonItem *)createGPSButton {
+    
+    UIImage *buttonImage = [UIImage imageNamed:@"gps_icon"];
+    UIButton *gpsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [gpsButton setImage:buttonImage forState:UIControlStateNormal];
+    gpsButton.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
+    
+    // Set the Target and Action for aButton
+    [gpsButton addTarget:self action:@selector(btnLocationClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    // Initialize the UIBarButtonItem
+    UIBarButtonItem *aBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:gpsButton];
+    
+    
+    return aBarButtonItem;
+    
+    
+    
+}
+
+
+-(void)btnLocationClicked:(id)sender {
+    [self getUsersLocation];
 }
 
 
@@ -101,8 +130,6 @@
             NSMutableArray *results = [NSMutableArray array];
             
             [[BusApiClient sharedInstance] commandWithParams:params onCompletion:^(NSDictionary *json) {
-                NSLog(@"Json Response %@", json);
-                
                 // Loop through response to store
                 for (id item in json) {
                     BusStopLocation *location = [[BusStopLocation alloc] initWithDictionary:item];
@@ -111,23 +138,23 @@
                 
                 _locationData = results;
                 [self plotLocationPositions:@""];
+            } onFailure:^(NSDictionary *json) {
+                NSLog(@"Error ");
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry we was unable to retrieve the nearest bus stops, please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                
+                [alert show];
+                
                 
             }];
         }
-        
-    
-    
 }
 
 
 - (void)plotLocationPositions:(NSString *)responseString {
     
-    // Should we remove the annotations?
-    
     for (id<MKAnnotation> annotation in _mapView.annotations) {
         
         if ([annotation isKindOfClass:[BusStopLocation class]]) {
-            //  NSLog(@"Annotaton Match");
             [_mapView removeAnnotation:annotation];
         }
     }

@@ -10,13 +10,10 @@
 #import "AFNetworking.h"
 #import "BusApiClient.h"
 
-//
-//#define kNameFieldIndex         0
-//#define kNameFieldHeight        88
+#import "SelectCompanyTableViewController.h"
+
 #define kDatePickerFieldIndex   3
-#define kDatePickerHeight       180
-//#define kNotesFieldIndex        10
-//#define kNotesFieldHeight       265
+#define kDatePickerHeight       162
 
 @interface ReportViewController ()
 
@@ -29,18 +26,24 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Report Bus";
     }
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"Report Bus";
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Report Bus";
+    self.navigationController.navigationBar.topItem.title = @"";
+
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    [self.dateFormatter setDateFormat:@"hh:mm a"];
     
     _datePicker.maximumDate = [NSDate date];
     self.datePicker.alpha = 0.0f;
@@ -62,11 +65,12 @@
     CGFloat height = 44;
     
     if (indexPath.section == 0) {
-        // Check for DOB Cell
+        // Check for Expected Time Cell
         if (indexPath.row == kDatePickerFieldIndex) {
             height = self.datePickerIsShowing ? kDatePickerHeight : 0.0f;
+        } else if (indexPath.row == kDatePickerFieldIndex + 1) {
+            height = 82;
         }
-
     }else {
         height =  44;
     }
@@ -76,6 +80,8 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.view endEditing:YES];
     
     if (indexPath.row == kDatePickerFieldIndex - 1) {
         
@@ -107,9 +113,7 @@
     self.datePicker.alpha = 0.0f;
     
     [UIView animateWithDuration:0.25 animations:^{
-        
         self.datePicker.alpha = 1.0f;
-        
     }];
 }
 
@@ -164,20 +168,24 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"startButton"]) {
-     
         NSLog(@"Start Tapped");
-        
-        
     }
     
     
     if ([[segue identifier] isEqualToString:@"selectCompany"]) {
-     
-        NSLog(@"Company Tapped");
-        
+        SelectCompanyTableViewController *vc = (SelectCompanyTableViewController*)segue.destinationViewController;
+        vc.delegate = self;
+        vc.selectedCompanyName = _lblBusCompany.text;
     }
     
 }
 
+
+#pragma mark -
+#pragma mark - Select Company Delegate
+-(void)getSiteSelectedCompanyName:(NSString *)companyName {
+
+    _lblBusCompany.text = companyName;
+}
 
 @end

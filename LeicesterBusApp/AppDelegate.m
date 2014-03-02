@@ -53,8 +53,6 @@
     // Starts the iBeacon Monitoring
     // [self startBeaconMonitoring];
     
-//    NewsViewController *vc = [[NewsViewController alloc] initWithNibName:@"NewsViewController" bundle:nil];
-//
     HomeScreenViewController *vc = [[HomeScreenViewController alloc] initWithNibName:@"HomeScreenViewController" bundle:nil];
     
     
@@ -66,9 +64,7 @@
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:nc leftDrawerViewController:leftSideDrawerController];
     
     // Generic stuff which is shared
-    
     [self.drawerController setShowsShadow:YES];
-    
     
     
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
@@ -93,7 +89,28 @@
     
     [self.window setRootViewController:self.drawerController];
     
+    // Set-up bar colors
+    [self configureAppearance];
+
     return YES;
+    
+}
+
+
+- (void)configureAppearance {
+    
+    UIColor * barColor = [UIColor colorWithRed:40.0/255.0 green:70.0/255.0 blue:180.0/255.0 alpha:1.0f];
+    [[UINavigationBar appearance] setBarTintColor:barColor];
+    
+    // Set Text and Icons colours
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UIToolbar appearance] setTintColor:[UIColor whiteColor]];
+    
+    
+    NSDictionary *titlebarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:titlebarAttributes];
     
 }
 
@@ -181,7 +198,7 @@
         
         if (!_isInsideRegion) {
             UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = @"Would you like some help with trainer sizes?";
+            notification.alertBody = @"Hello welcome to the bus stop?";
             notification.soundName = UILocalNotificationDefaultSoundName;
             
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
@@ -257,13 +274,11 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     
-//    [[UIApplication sharedApplication] cancelLocalNotification:notification];
-//    
-//    SPCSLoginViewController *vc = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"shoeSize"];
-//    
-//    [self.window setRootViewController:vc];
-    
-    
+    //    [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    //
+    //    SPCSLoginViewController *vc = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"shoeSize"];
+    //
+    //    [self.window setRootViewController:vc];
 }
 
 
