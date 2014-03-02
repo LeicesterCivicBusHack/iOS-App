@@ -9,6 +9,8 @@
 #import "NewsViewController.h"
 #import "AboutViewController.h"
 #import "MMNavigationController.h"
+#import "HomeScreenViewController.h"
+
 
 @interface MenuViewController ()
 
@@ -138,7 +140,7 @@
     switch (indexPath.row) {
         case 0: // Home
         {
-            vc = [[NewsViewController alloc] initWithNibName:@"NewsViewController" bundle:nil];
+            vc = [[HomeScreenViewController alloc] initWithNibName:@"HomeScreenViewController" bundle:nil];
         }
             break;
         case 1:     // Report
