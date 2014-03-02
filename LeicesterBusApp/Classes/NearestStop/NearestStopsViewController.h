@@ -24,7 +24,7 @@
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSArray *locationData;
-
+@property (nonatomic) BOOL isAChildView;
 
 
 

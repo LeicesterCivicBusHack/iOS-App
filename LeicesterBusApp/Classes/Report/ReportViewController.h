@@ -29,6 +29,8 @@
 @property (assign) CGFloat longitude;
 @property (assign) CGFloat latitude;
 
+@property (nonatomic) BOOL isAChildView;
+
 -(IBAction)pickerDateChanged:(UIDatePicker *)sender;
 
 -(IBAction)btnStart:(id)sender;

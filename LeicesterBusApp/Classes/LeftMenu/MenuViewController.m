@@ -10,7 +10,8 @@
 #import "AboutViewController.h"
 #import "MMNavigationController.h"
 #import "HomeScreenViewController.h"
-
+#import "NearestStopsViewController.h"
+#import "RoutesMenuViewController.h"
 
 @interface MenuViewController ()
 
@@ -73,7 +74,7 @@
   
     [self.navigationController.navigationBar setTitleTextAttributes:navBarTitleDict];
     
-    self.arrayOptions = @[@"Home", @"Report", @"Routes", @"History", @"About", @"Testing"];
+    self.arrayOptions = @[@"Home", @"Nearest Stop", @"Report Late Bus", @"Bus Routes", @"About"];
     
     [self.view setBackgroundColor:[UIColor clearColor]];
     
@@ -135,7 +136,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
  
-    //  self.arrayOptions = @[@"Home", @"Report", @"Routes", @"History", @"About"];
+    //self.arrayOptions = @[@"Home", @"Nearest Stop", @"Report Late Bus", @"Bus Routes", @"About"];
     UIViewController *vc;
     switch (indexPath.row) {
         case 0: // Home
@@ -143,33 +144,36 @@
             vc = [[HomeScreenViewController alloc] initWithNibName:@"HomeScreenViewController" bundle:nil];
         }
             break;
-        case 1:     // Report
+        case 1:  // Nearest Stop
         {
-         
-            
+            vc = [[NearestStopsViewController alloc] initWithNibName:@"NearestStopsViewController" bundle:nil];
         }
             break;
-        case 2:     // Routes
+            
+        case 2:     // Report Late Bus
         {
+            UIStoryboard *reportStoryBoard = [UIStoryboard storyboardWithName:@"ReportStoryboard" bundle:nil];
+            vc = [reportStoryBoard instantiateInitialViewController];
+            
+            //[self.navigationController pushViewController:vc animated:YES];
+
+        }
+            break;
+        case 3:     // Routes
+        {
+            vc = [[RoutesMenuViewController alloc] initWithNibName:@"RoutesMenuViewController" bundle:nil];
             
         }
             
             break;
-        case 3:     // History
+        case 4:     // About Ciew
         {
             vc = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil];
         }
             break;
             
-        case 4:     // About
-        {
-        }
-            break;
-        case 5:     // About
-        {
-            NSLog(@"Hello testing");
-        }
-            break;
+            
+            
         default:
             break;
     }

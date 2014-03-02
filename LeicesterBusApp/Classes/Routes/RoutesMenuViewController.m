@@ -8,7 +8,8 @@
 
 #import "RoutesMenuViewController.h"
 #import "RoutesWebViewController.h"
-
+#import "MenuViewController.h"
+#import "MMDrawerBarButtonItem.h"
 
 @interface RoutesMenuViewController ()
 
@@ -34,7 +35,26 @@
     
     _arrayRoutes = [[NSArray alloc] initWithObjects:@"Arriva", @"First Bus", nil];
     _arrayURLS = [[NSArray alloc] initWithObjects:@"http://arrivabus.mobi/mobile", @"http://www.firstgroup.com/ukbus/leicester", nil];
+    
+    if (!_isAChildView) {
+        [self setupLeftMenuButton];
+    }
+    
 }
+
+
+#pragma mark - Left Menu Set-up
+-(void)setupLeftMenuButton{
+    MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
+    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
+}
+
+
+#pragma mark - Button Handlers
+-(void)leftDrawerButtonPress:(id)sender{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
 
 
 #pragma mark - Table View

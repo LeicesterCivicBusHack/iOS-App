@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 #import "AFNetworking.h"
 #import "BusApiClient.h"
+#import "MenuViewController.h"
+#import "MMDrawerBarButtonItem.h"
 
 // Location & Annotations
 #import "BusStopLocation.h"
@@ -29,9 +31,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Nearest Stop";
+        
     }
     return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"Nearest Stop";
 }
 
 - (void)viewDidLoad
@@ -41,13 +47,31 @@
     
     _mapView.showsUserLocation=TRUE;
     
-    self.navigationController.navigationBar.topItem.title = @"";
+
     
     self.navigationItem.rightBarButtonItem = [self createGPSButton];
     [self getUsersLocation];
 
+    if (!_isAChildView) {
+        [self setupLeftMenuButton];
+    } else {
+        self.navigationController.navigationBar.topItem.title = @"";
+    }
+    
 }
 
+
+#pragma mark - Left Menu Set-up
+-(void)setupLeftMenuButton{
+    MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
+    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
+}
+
+
+#pragma mark - Button Handlers
+-(void)leftDrawerButtonPress:(id)sender{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
 
 - (UIBarButtonItem *)createGPSButton {
     

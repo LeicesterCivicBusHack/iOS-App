@@ -8,7 +8,7 @@
 #import "HomeScreenViewController.h"
 #import "MenuViewController.h"
 #import "MMDrawerBarButtonItem.h"
-
+#import "ReportViewController.h"
 #import "RoutesMenuViewController.h"
 
 // Nearest Bus Stop
@@ -46,8 +46,10 @@
 
 -(IBAction)btnReport:(id)sender {
     UIStoryboard *reportStoryBoard = [UIStoryboard storyboardWithName:@"ReportStoryboard" bundle:nil];
-    UIViewController *vc = [reportStoryBoard instantiateInitialViewController];
+     ReportViewController *vc = [reportStoryBoard instantiateInitialViewController];
 
+    vc.isAChildView = YES;
+    
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -58,12 +60,13 @@
 
 -(IBAction)btnRoutes:(id)sender {
     RoutesMenuViewController *vc = [[RoutesMenuViewController alloc] initWithNibName:@"RoutesMenuViewController" bundle:nil];
+    vc.isAChildView = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)btnNearestStop:(id)sender {
     NearestStopsViewController *vc = [[NearestStopsViewController alloc] initWithNibName:@"NearestStopsViewController" bundle:nil];
-    
+    vc.isAChildView = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

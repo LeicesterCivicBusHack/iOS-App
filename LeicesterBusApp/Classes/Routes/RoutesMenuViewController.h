@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSArray *arrayRoutes;
 @property (nonatomic, strong) NSArray *arrayURLS;
-
+@property (nonatomic) BOOL isAChildView;
 
 @end

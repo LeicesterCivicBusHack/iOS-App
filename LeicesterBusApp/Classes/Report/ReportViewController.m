@@ -9,6 +9,8 @@
 #import "ReportViewController.h"
 #import "AFNetworking.h"
 #import "BusApiClient.h"
+#import "MenuViewController.h"
+#import "MMDrawerBarButtonItem.h"
 
 #import "SelectCompanyTableViewController.h"
 #import "ReportStartViewController.h"
@@ -53,6 +55,26 @@
     locationManager = [[CLLocationManager alloc] init];
     
     [self getCurrentLocation];
+    
+    if (!_isAChildView) {
+        [self setupLeftMenuButton];
+    } else {
+        self.navigationController.navigationBar.topItem.title = @"";
+    }
+    
+}
+
+
+#pragma mark - Left Menu Set-up
+-(void)setupLeftMenuButton{
+    MMDrawerBarButtonItem * leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
+    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
+}
+
+
+#pragma mark - Button Handlers
+-(void)leftDrawerButtonPress:(id)sender{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 - (void)getCurrentLocation {
