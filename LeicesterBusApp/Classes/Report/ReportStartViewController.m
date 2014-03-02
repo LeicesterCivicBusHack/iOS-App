@@ -62,7 +62,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib
+    
+    NSLog(@"Bus Number = %@", _routeNumber);
+    NSLog(@"Company Name = %@", _busCompany);
+    NSLog(@"Longitude = %f", _longitude);
+    NSLog(@"Latitude = %f", _latitude);
+    NSLog(@"Expected Time %@", _expectedTime);
+    
     [self sendReport];
 }
 

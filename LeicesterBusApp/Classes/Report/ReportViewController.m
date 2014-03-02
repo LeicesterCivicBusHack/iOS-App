@@ -11,6 +11,7 @@
 #import "BusApiClient.h"
 
 #import "SelectCompanyTableViewController.h"
+#import "ReportStartViewController.h"
 
 #define kDatePickerFieldIndex   3
 #define kDatePickerHeight       162
@@ -210,7 +211,6 @@
         
         
     } else {
-        
         [self performSegueWithIdentifier:@"startTapped" sender:nil];
         
     }
@@ -222,10 +222,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue identifier] isEqualToString:@"startButton"]) {
-        NSLog(@"Start Tapped");
+    if ([[segue identifier] isEqualToString:@"startTapped"]) {
+        // NSLog(@"Start Tapped");
+        ReportStartViewController *vc = (ReportStartViewController*)segue.destinationViewController;
         
-        
+        vc.routeNumber = _txtBusNumber.text;
+        vc.busCompany = _lblBusCompany.text;
+        vc.longitude = _longitude;
+        vc.latitude = _latitude;
+        vc.expectedTime = _labelSelectedTime.text;
     }
     
     

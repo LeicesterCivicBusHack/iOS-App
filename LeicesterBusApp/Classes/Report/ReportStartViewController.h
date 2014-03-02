@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
 
 
-@interface ReportStartViewController : UIViewController {
-    CLGeocoder *_gecoder;
-}
+@interface ReportStartViewController : UIViewController
 
-@property (nonatomic, strong) CLGeocoder *geocoder;
+@property (nonatomic, strong) NSString *routeNumber;
+@property (nonatomic, strong) NSString *busCompany;
+@property (nonatomic, strong) NSString *expectedTime;
+@property (assign) CGFloat longitude;
+@property (assign) CGFloat latitude;
+
+
 
 -(IBAction)btnStop:(id)sender;
 
