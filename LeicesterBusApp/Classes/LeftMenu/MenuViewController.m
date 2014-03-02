@@ -6,7 +6,6 @@
 //
 
 #import "MenuViewController.h"
-#import "NewsViewController.h"
 #import "AboutViewController.h"
 #import "MMNavigationController.h"
 #import "HomeScreenViewController.h"

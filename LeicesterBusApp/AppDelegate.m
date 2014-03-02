@@ -7,8 +7,6 @@
 
 #import "AppDelegate.h"
 #import "MenuViewController.h"
-//#import "HomeScreenViewController.h"
-#import "NewsViewController.h"
 #import "HomeScreenViewController.h"
 
 // Drawer Stuff
@@ -17,23 +15,15 @@
 #import "MMNavigationController.h"
 #import "MMExampleDrawerVisualStateManager.h"
 
-// Beacon Stuff
-#import "ESTBeaconManager.h"
 
-@interface AppDelegate () <ESTBeaconManagerDelegate>
+@interface AppDelegate ()
 
 @property (nonatomic, strong) MMDrawerController *drawerController;
-
-// Beacon Stuff
-@property (nonatomic, strong) ESTBeaconManager *beaconManager;
-@property (nonatomic, strong) ESTBeacon *selectedBeacon;
 
 @end
 
 
-@implementation AppDelegate {
-    BOOL _isInsideRegion; // flag to prevent duplicate sending of notification
-}
+@implementation AppDelegate {}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -49,9 +39,6 @@
 }
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // Starts the iBeacon Monitoring
-    // [self startBeaconMonitoring];
     
     HomeScreenViewController *vc = [[HomeScreenViewController alloc] initWithNibName:@"HomeScreenViewController" bundle:nil];
     
@@ -99,7 +86,7 @@
 
 - (void)configureAppearance {
     
-    UIColor * barColor = [UIColor colorWithRed:40.0/255.0 green:120.0/255.0 blue:180.0/255.0 alpha:1.0f];
+    UIColor * barColor = [UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0f];
     //UIColor * barColor = [UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0f];
     [[UINavigationBar appearance] setBarTintColor:barColor];
     
@@ -144,142 +131,11 @@
 }
 
 
-#pragma mark - 
-#pragma mark - iBeacon Stuff
-- (void)startBeaconMonitoring {
-    
-    // Set-up the Beacon
-    // craete manager instance
-    self.beaconManager = [[ESTBeaconManager alloc] init];
-    self.beaconManager.delegate = self;
-    
-    
-    // create sample region object (you can additionaly pass major / minor values)
-    ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initWithProximityUUID:ESTIMOTE_PROXIMITY_UUID
-                                                                  identifier:@"EstimoteSampleRegion"];
-    
-    // start looking for estimote beacons in region
-    // when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
-    
-    [self.beaconManager startEstimoteBeaconsDiscoveryForRegion:region];
-    [self.beaconManager startMonitoringForRegion:region];
-    [self.beaconManager requestStateForRegion:region];
-    
-}
 
-- (void)beaconManager:(ESTBeaconManager *)manager didDetermineState:(CLRegionState)state forRegion:(ESTBeaconRegion *)region {
-    
-    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
-    {
-        // don't send any notifications
-        NSLog(@"App is active don't bother ");
-        return;
-    }
-    
-    
-    if (state == CLRegionStateOutside) {
-        if (_isInsideRegion) {
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = @"You are outside";
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-            
-            
-            //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Come in" message:@"Hey why dont you come into the store" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-            //        [alert show];
-            NSLog(@"Outside");
-            
-            _isInsideRegion = NO;
-        }
-        
-    } else if (state == CLRegionStateInside) {
-        //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wanna buy a show" message:@"Want to check if its in stock" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-        //        [alert show];
-        
-        if (!_isInsideRegion) {
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = @"Hello welcome to the bus stop?";
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-            NSLog(@"inside");
-            
-            _isInsideRegion = YES;
-        }
-    }
-    
-    
-}
-
-
--(void)beaconManager:(ESTBeaconManager *)manager
-     didRangeBeacons:(NSArray *)beacons
-            inRegion:(ESTBeaconRegion *)region
-{
-    if([beacons count] > 0)
-    {
-        
-        if(!self.selectedBeacon)
-        {
-            // initialy pick closest beacon
-            self.selectedBeacon = [beacons objectAtIndex:0];
-        }
-        else
-        {
-            for (ESTBeacon* cBeacon in beacons)
-            {
-                // update beacon it same as selected initially
-                if([self.selectedBeacon.major unsignedShortValue] == [cBeacon.major unsignedShortValue] &&
-                   [self.selectedBeacon.minor unsignedShortValue] == [cBeacon.minor unsignedShortValue])
-                {
-                    self.selectedBeacon = cBeacon;
-                }
-            }
-        }
-        
-        
-        
-        // beacon array is sorted based on distance
-        // closest beacon is the first one
-        
-        NSString* labelText = [NSString stringWithFormat:
-                               @"Major: %i, Minor: %i\nRegion: ",
-                               [self.selectedBeacon.major unsignedShortValue],
-                               [self.selectedBeacon.minor unsignedShortValue]];
-        
-        // calculate and set new y position
-        switch (self.selectedBeacon.proximity)
-        {
-            case CLProximityUnknown:
-                labelText = [labelText stringByAppendingString: @"Unknown"];
-                break;
-            case CLProximityImmediate:
-                labelText = [labelText stringByAppendingString: @"Immediate"];
-                break;
-            case CLProximityNear:
-                labelText = [labelText stringByAppendingString: @"Near"];
-                break;
-            case CLProximityFar:
-                labelText = [labelText stringByAppendingString: @"Far"];
-                break;
-                
-            default:
-                break;
-        }
-        NSLog(@"label Text %@", labelText);
-        //  self.distanceLabel.text = labelText;
-    }
-}
 
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     
-    //    [[UIApplication sharedApplication] cancelLocalNotification:notification];
-    //
-    //    SPCSLoginViewController *vc = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"shoeSize"];
-    //
-    //    [self.window setRootViewController:vc];
 }
 
 

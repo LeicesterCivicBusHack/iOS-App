@@ -14,7 +14,7 @@
 
 #define APIToken @"1234abcd"
 #define kAPIPath @"stops"
-#define kBaseURL @"http://mistabus.subora.com:3000/"
+#define kBaseURL @"http://www.vivait.co.uk/LeicesterTransportAPI/web/api/0.1/"
 
 @implementation BusApiClient
 
@@ -54,41 +54,22 @@
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
     
     if (netStatus == NotReachable) {
-        ///NSLog(@"Not Reachable");
         return NO;
     } else {
-        //NSLog(@"Reachable");
         return YES;
     }
 }
 
 -(void)commandWithParams:(NSMutableDictionary *)params apiURL:(NSString *)apiURL onCompletion:(JSONResponseBlock)completionBlock onFailure:(JSONResponseBlock)failureBlock {
     
-//    NSData* uploadFile = nil;
-//    if ([params objectForKey:@"file"]) {
-//        uploadFile = (NSData*)[params objectForKey:@"file"];
-//        [params removeObjectForKey:@"file"];
-//    }
-//    
-//    
-//    NSMutableURLRequest *apiRequest =
-//    [self multipartFormRequestWithMethod:@"POST"
-//                                    path:kAPIPath parameters:params
-//               constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
-//                   if (uploadFile) {
-//                       [formData appendPartWithFileData:uploadFile
-//                                                   name:@"file"
-//                                               fileName:@"photo.jpg"
-//                                               mimeType:@"image/jpeg"];
-//                   }
-//               }];
-
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
-    
+   
     NSMutableURLRequest *apiRequest = [httpClient requestWithMethod:@"GET" path:apiURL parameters:params];
     
-    
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:apiRequest];
+    
+    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
+
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         //success!
         completionBlock(responseObject);

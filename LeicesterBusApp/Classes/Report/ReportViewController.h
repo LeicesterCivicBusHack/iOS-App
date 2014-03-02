@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SelectCompanyTableViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "NearestStopsViewController.h"
+#import "BusStopLocation.h"
 
-
-@interface ReportViewController : UITableViewController <SelectCompanyDelegate, CLLocationManagerDelegate> {
+@interface ReportViewController : UITableViewController <SelectCompanyDelegate, SelectBusStopDelegate, CLLocationManagerDelegate> {
     
     CLLocationManager *locationManager;
 }
@@ -22,10 +23,13 @@
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) NSDate *selectedDate;
-
+@property (nonatomic, strong) BusStopLocation *busStopLocation;
 
 @property (nonatomic, weak) IBOutlet UITextField *txtBusNumber;
 @property (nonatomic, weak) IBOutlet UILabel *lblBusCompany;
+@property (nonatomic, weak) IBOutlet UILabel *lblBusStop;
+
+
 @property (assign) CGFloat longitude;
 @property (assign) CGFloat latitude;
 

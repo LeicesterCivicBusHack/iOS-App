@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-//API call completion block with result as json
 typedef void (^JSONResponseBlock)(NSDictionary* json);
 
 

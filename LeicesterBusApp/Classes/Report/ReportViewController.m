@@ -14,8 +14,10 @@
 
 #import "SelectCompanyTableViewController.h"
 #import "ReportStartViewController.h"
+#import "NearestStopsViewController.h"
 
-#define kDatePickerFieldIndex   3
+
+#define kDatePickerFieldIndex   2
 #define kDatePickerHeight       162
 
 @interface ReportViewController ()
@@ -90,7 +92,6 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc]
                                initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
@@ -98,15 +99,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
         _latitude = currentLocation.coordinate.latitude;
         _longitude = currentLocation.coordinate.longitude;
-        
-        NSLog(@"Longitude %@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
-        NSLog(@"Latitude %@",  [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
     }
     
     [locationManager stopUpdatingLocation];
@@ -130,7 +127,7 @@
         // Check for Expected Time Cell
         if (indexPath.row == kDatePickerFieldIndex) {
             height = self.datePickerIsShowing ? kDatePickerHeight : 0.0f;
-        } else if (indexPath.row == kDatePickerFieldIndex + 1) {
+        } else if (indexPath.row == kDatePickerFieldIndex + 2) {
             height = 82;
         }
     }else {
@@ -159,6 +156,15 @@
         
     }
     
+    
+    if (indexPath.row == kDatePickerFieldIndex + 1) {
+        NearestStopsViewController *vc = [[NearestStopsViewController alloc] initWithNibName:@"NearestStopsViewController" bundle:nil];
+        vc.isAChildView = YES;
+        vc.isAccessedViaReportView = YES;
+        vc.delegate = self;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
 }
 
@@ -206,22 +212,6 @@
 #pragma mark - 
 #pragma mark - Report Button
 
-- (void)sendReport {
-    
-//    if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
-//        
-//        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-//                                       @"nearest",@"command",
-//                                       @"", @"long",
-//                                       @"", @"lat", nil];
-//        
-//        NSLog(@"Params %@", params);
-//        
-//        [[BusApiClient sharedInstance] commandWithParams:params onCompletion:^(NSDictionary *json) {
-//            NSLog(@"Json Response %@", json);
-//        }];
-//    }
-}
 
 
 - (IBAction)btnStart:(id)sender {
@@ -232,7 +222,13 @@
         [alert show];
         
         
+    } else if (_busStopLocation == nil) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Report Error" message:@"Please select a bus stop to continue." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
     } else {
+    
         [self performSegueWithIdentifier:@"startTapped" sender:nil];
         
     }
@@ -245,7 +241,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"startTapped"]) {
-        // NSLog(@"Start Tapped");
+
         ReportStartViewController *vc = (ReportStartViewController*)segue.destinationViewController;
         
         vc.routeNumber = _txtBusNumber.text;
@@ -253,6 +249,7 @@
         vc.longitude = _longitude;
         vc.latitude = _latitude;
         vc.expectedTime = _labelSelectedTime.text;
+        vc.busStopLocation = _busStopLocation;
     }
     
     
@@ -270,6 +267,14 @@
 -(void)getSiteSelectedCompanyName:(NSString *)companyName {
 
     _lblBusCompany.text = companyName;
+}
+
+
+- (void)getSelectedBusLocation:(BusStopLocation *)busStopLocation {
+    
+    _busStopLocation = busStopLocation;
+    _lblBusStop.text = busStopLocation.commonName;
+    
 }
 
 @end

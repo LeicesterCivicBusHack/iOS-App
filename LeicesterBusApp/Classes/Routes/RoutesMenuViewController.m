@@ -64,11 +64,6 @@
     return 1;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {
-//    
-//    return 70;
-//    
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -88,18 +83,8 @@
     
     NSString *routeCompany = [_arrayRoutes objectAtIndex:indexPath.row];
     
-    // Custom Cell Code
-    // ----------------------------------
-    // CustomPropertyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCell"];
-    // if (cell == nil) {
-    //    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CustomPropertyCell" owner:self options:nil];
-    //    Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).
-    //    cell = [topLevelObjects objectAtIndex:0];
-    //    cell = [[CustomPropertyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"propertyCell"];
-    // }
-    
     cell.textLabel.text = routeCompany;
-    //    cell.detailTextLabel.text = @"Detail Descrition goes here.";
+  
     return cell;
 }
 

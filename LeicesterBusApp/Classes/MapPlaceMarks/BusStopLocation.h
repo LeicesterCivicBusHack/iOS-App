@@ -16,6 +16,7 @@
 @property (weak, readonly) NSString *latitude;
 @property (weak, readonly) NSString *longitude;
 @property (weak, readonly) NSString *distance;
+@property (weak, readonly) NSString *locationID;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

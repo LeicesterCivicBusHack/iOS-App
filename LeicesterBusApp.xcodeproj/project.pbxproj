@@ -12,8 +12,6 @@
 		9314FD9D18ACF5610021695D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9314FD9C18ACF5610021695D /* UIKit.framework */; };
 		9314FD9F18ACF5610021695D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9314FD9E18ACF5610021695D /* CoreData.framework */; };
 		9314FE2518ACFCE60021695D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9314FE2418ACFCE60021695D /* QuartzCore.framework */; };
-		9314FE3A18AD01440021695D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9314FE3918AD01440021695D /* Social.framework */; };
-		9372AFE218BCDC46001AEDEE /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9372AFE118BCDC46001AEDEE /* CoreBluetooth.framework */; };
 		9372AFE418BCDC4D001AEDEE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9372AFE318BCDC4D001AEDEE /* SystemConfiguration.framework */; };
 		9372AFE618BCDC58001AEDEE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9372AFE518BCDC58001AEDEE /* CoreLocation.framework */; };
 		93B79F2F18C21E83000365DC /* RoutesMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B79F2D18C21E83000365DC /* RoutesMenuViewController.m */; };
@@ -38,17 +36,6 @@
 		93BB3F4018C205B2007F9FD2 /* HomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EE218C205B2007F9FD2 /* HomeScreenViewController.m */; };
 		93BB3F4118C205B2007F9FD2 /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EE318C205B2007F9FD2 /* HomeScreenViewController.xib */; };
 		93BB3F4218C205B2007F9FD2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EE718C205B2007F9FD2 /* MenuViewController.m */; };
-		93BB3F4318C205B2007F9FD2 /* CustomCellNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EEC18C205B2007F9FD2 /* CustomCellNews.m */; };
-		93BB3F4418C205B2007F9FD2 /* CustomCellNews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EED18C205B2007F9FD2 /* CustomCellNews.xib */; };
-		93BB3F4518C205B2007F9FD2 /* NewsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EEF18C205B2007F9FD2 /* NewsCustomCell.m */; };
-		93BB3F4618C205B2007F9FD2 /* NewsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EF018C205B2007F9FD2 /* NewsCustomCell.xib */; };
-		93BB3F4718C205B2007F9FD2 /* NewsHeadlineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EF218C205B2007F9FD2 /* NewsHeadlineCell.m */; };
-		93BB3F4818C205B2007F9FD2 /* NewsHeadlineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EF318C205B2007F9FD2 /* NewsHeadlineCell.xib */; };
-		93BB3F4918C205B2007F9FD2 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EF518C205B2007F9FD2 /* NewsDetailViewController.m */; };
-		93BB3F4A18C205B2007F9FD2 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EF618C205B2007F9FD2 /* NewsDetailViewController.xib */; };
-		93BB3F4B18C205B2007F9FD2 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3EF818C205B2007F9FD2 /* NewsViewController.m */; };
-		93BB3F4C18C205B2007F9FD2 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EF918C205B2007F9FD2 /* NewsViewController.xib */; };
-		93BB3F4D18C205B2007F9FD2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3EFC18C205B2007F9FD2 /* InfoPlist.strings */; };
 		93BB3F4E18C205B2007F9FD2 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F0118C205B2007F9FD2 /* AFHTTPClient.m */; };
 		93BB3F4F18C205B2007F9FD2 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F0318C205B2007F9FD2 /* AFHTTPRequestOperation.m */; };
 		93BB3F5018C205B2007F9FD2 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F0518C205B2007F9FD2 /* AFImageRequestOperation.m */; };
@@ -58,9 +45,6 @@
 		93BB3F5418C205B2007F9FD2 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F0E18C205B2007F9FD2 /* AFURLConnectionOperation.m */; };
 		93BB3F5518C205B2007F9FD2 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F1018C205B2007F9FD2 /* AFXMLRequestOperation.m */; };
 		93BB3F5618C205B2007F9FD2 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F1218C205B2007F9FD2 /* UIImageView+AFNetworking.m */; };
-		93BB3F5718C205B2007F9FD2 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BB3F1A18C205B2007F9FD2 /* libEstimoteSDK.a */; };
-		93BB3F5818C205B2007F9FD2 /* getNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F1C18C205B2007F9FD2 /* getNews.m */; };
-		93BB3F5918C205B2007F9FD2 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F1E18C205B2007F9FD2 /* ImageCache.m */; };
 		93BB3F5A18C205B2007F9FD2 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F2318C205B2007F9FD2 /* MMDrawerBarButtonItem.m */; };
 		93BB3F5B18C205B2007F9FD2 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F2618C205B2007F9FD2 /* MMDrawerController.m */; };
 		93BB3F5C18C205B2007F9FD2 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F2818C205B2007F9FD2 /* MMDrawerVisualState.m */; };
@@ -68,12 +52,9 @@
 		93BB3F5E18C205B2007F9FD2 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F2C18C205B2007F9FD2 /* MMNavigationController.m */; };
 		93BB3F5F18C205B2007F9FD2 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F2E18C205B2007F9FD2 /* UIViewController+MMDrawerController.m */; };
 		93BB3F6018C205B2007F9FD2 /* NSDictionary+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F3018C205B2007F9FD2 /* NSDictionary+Utility.m */; };
-		93BB3F6118C205B2007F9FD2 /* iPhoneNewsArticle.html in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3F3218C205B2007F9FD2 /* iPhoneNewsArticle.html */; };
 		93BB3F6218C205B2007F9FD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3F3318C205B2007F9FD2 /* Images.xcassets */; };
-		93BB3F6318C205B2007F9FD2 /* LeicesterBusApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93BB3F3418C205B2007F9FD2 /* LeicesterBusApp-Info.plist */; };
 		93BB3F6418C205B2007F9FD2 /* LeicesterBusApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F3618C205B2007F9FD2 /* LeicesterBusApp.xcdatamodeld */; };
 		93BB3F6518C205B2007F9FD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F3818C205B2007F9FD2 /* main.m */; };
-		93BB3F6618C205B2007F9FD2 /* NewsEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BB3F3B18C205B2007F9FD2 /* NewsEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,23 +105,7 @@
 		93BB3EE318C205B2007F9FD2 /* HomeScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeScreenViewController.xib; sourceTree = "<group>"; };
 		93BB3EE618C205B2007F9FD2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		93BB3EE718C205B2007F9FD2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		93BB3EEB18C205B2007F9FD2 /* CustomCellNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellNews.h; sourceTree = "<group>"; };
-		93BB3EEC18C205B2007F9FD2 /* CustomCellNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellNews.m; sourceTree = "<group>"; };
-		93BB3EED18C205B2007F9FD2 /* CustomCellNews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellNews.xib; sourceTree = "<group>"; };
-		93BB3EEE18C205B2007F9FD2 /* NewsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCustomCell.h; sourceTree = "<group>"; };
-		93BB3EEF18C205B2007F9FD2 /* NewsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCustomCell.m; sourceTree = "<group>"; };
-		93BB3EF018C205B2007F9FD2 /* NewsCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCustomCell.xib; sourceTree = "<group>"; };
-		93BB3EF118C205B2007F9FD2 /* NewsHeadlineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsHeadlineCell.h; sourceTree = "<group>"; };
-		93BB3EF218C205B2007F9FD2 /* NewsHeadlineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsHeadlineCell.m; sourceTree = "<group>"; };
-		93BB3EF318C205B2007F9FD2 /* NewsHeadlineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsHeadlineCell.xib; sourceTree = "<group>"; };
-		93BB3EF418C205B2007F9FD2 /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
-		93BB3EF518C205B2007F9FD2 /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
-		93BB3EF618C205B2007F9FD2 /* NewsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailViewController.xib; sourceTree = "<group>"; };
-		93BB3EF718C205B2007F9FD2 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
-		93BB3EF818C205B2007F9FD2 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
-		93BB3EF918C205B2007F9FD2 /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 		93BB3EFB18C205B2007F9FD2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		93BB3EFD18C205B2007F9FD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		93BB3F0018C205B2007F9FD2 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		93BB3F0118C205B2007F9FD2 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		93BB3F0218C205B2007F9FD2 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -160,16 +125,6 @@
 		93BB3F1018C205B2007F9FD2 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		93BB3F1118C205B2007F9FD2 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		93BB3F1218C205B2007F9FD2 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		93BB3F1518C205B2007F9FD2 /* ESTBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeacon.h; sourceTree = "<group>"; };
-		93BB3F1618C205B2007F9FD2 /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconDefinitions.h; sourceTree = "<group>"; };
-		93BB3F1718C205B2007F9FD2 /* ESTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconManager.h; sourceTree = "<group>"; };
-		93BB3F1818C205B2007F9FD2 /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
-		93BB3F1918C205B2007F9FD2 /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
-		93BB3F1A18C205B2007F9FD2 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
-		93BB3F1B18C205B2007F9FD2 /* getNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getNews.h; sourceTree = "<group>"; };
-		93BB3F1C18C205B2007F9FD2 /* getNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getNews.m; sourceTree = "<group>"; };
-		93BB3F1D18C205B2007F9FD2 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
-		93BB3F1E18C205B2007F9FD2 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		93BB3F2218C205B2007F9FD2 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
 		93BB3F2318C205B2007F9FD2 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
 		93BB3F2418C205B2007F9FD2 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
@@ -185,14 +140,11 @@
 		93BB3F2E18C205B2007F9FD2 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		93BB3F2F18C205B2007F9FD2 /* NSDictionary+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Utility.h"; sourceTree = "<group>"; };
 		93BB3F3018C205B2007F9FD2 /* NSDictionary+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Utility.m"; sourceTree = "<group>"; };
-		93BB3F3218C205B2007F9FD2 /* iPhoneNewsArticle.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = iPhoneNewsArticle.html; sourceTree = "<group>"; };
 		93BB3F3318C205B2007F9FD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		93BB3F3418C205B2007F9FD2 /* LeicesterBusApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LeicesterBusApp-Info.plist"; sourceTree = "<group>"; };
 		93BB3F3518C205B2007F9FD2 /* LeicesterBusApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LeicesterBusApp-Prefix.pch"; sourceTree = "<group>"; };
 		93BB3F3718C205B2007F9FD2 /* LeicesterBusApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LeicesterBusApp.xcdatamodel; sourceTree = "<group>"; };
 		93BB3F3818C205B2007F9FD2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		93BB3F3A18C205B2007F9FD2 /* NewsEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsEntry.h; sourceTree = "<group>"; };
-		93BB3F3B18C205B2007F9FD2 /* NewsEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,10 +154,7 @@
 			files = (
 				9372AFE618BCDC58001AEDEE /* CoreLocation.framework in Frameworks */,
 				9372AFE418BCDC4D001AEDEE /* SystemConfiguration.framework in Frameworks */,
-				9372AFE218BCDC46001AEDEE /* CoreBluetooth.framework in Frameworks */,
-				9314FE3A18AD01440021695D /* Social.framework in Frameworks */,
 				93B79F4D18C22CA0000365DC /* MapKit.framework in Frameworks */,
-				93BB3F5718C205B2007F9FD2 /* libEstimoteSDK.a in Frameworks */,
 				9314FE2518ACFCE60021695D /* QuartzCore.framework in Frameworks */,
 				9314FD9B18ACF5610021695D /* CoreGraphics.framework in Frameworks */,
 				9314FD9F18ACF5610021695D /* CoreData.framework in Frameworks */,
@@ -250,6 +199,15 @@
 				9314FDB618ACF5610021695D /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		932F019518C3AAD00018D8A0 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				93BB3EDA18C205B2007F9FD2 /* AppDelegate.h */,
+				93BB3EDB18C205B2007F9FD2 /* AppDelegate.m */,
+			);
+			name = Singletons;
 			sourceTree = "<group>";
 		};
 		93B79F2B18C21E5F000365DC /* Routes */ = {
@@ -325,19 +283,15 @@
 		93BB3ED918C205B2007F9FD2 /* LeicesterBusApp */ = {
 			isa = PBXGroup;
 			children = (
-				93BB3EDA18C205B2007F9FD2 /* AppDelegate.h */,
-				93BB3EDB18C205B2007F9FD2 /* AppDelegate.m */,
-				93BB3EDC18C205B2007F9FD2 /* Classes */,
 				93BB3EFB18C205B2007F9FD2 /* Constants.h */,
-				93BB3EFC18C205B2007F9FD2 /* InfoPlist.strings */,
+				932F019518C3AAD00018D8A0 /* Singletons */,
+				93BB3EDC18C205B2007F9FD2 /* Classes */,
 				93BB3EFE18C205B2007F9FD2 /* Externals */,
-				93BB3F3118C205B2007F9FD2 /* HTMLTemplates */,
 				93BB3F3318C205B2007F9FD2 /* Images.xcassets */,
 				93BB3F3418C205B2007F9FD2 /* LeicesterBusApp-Info.plist */,
 				93BB3F3518C205B2007F9FD2 /* LeicesterBusApp-Prefix.pch */,
 				93BB3F3618C205B2007F9FD2 /* LeicesterBusApp.xcdatamodeld */,
 				93BB3F3818C205B2007F9FD2 /* main.m */,
-				93BB3F3918C205B2007F9FD2 /* ObjectModels */,
 			);
 			path = LeicesterBusApp;
 			sourceTree = "<group>";
@@ -355,7 +309,6 @@
 				93BB3EE218C205B2007F9FD2 /* HomeScreenViewController.m */,
 				93BB3EE318C205B2007F9FD2 /* HomeScreenViewController.xib */,
 				93BB3EE518C205B2007F9FD2 /* LeftMenu */,
-				93BB3EE918C205B2007F9FD2 /* News */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -369,45 +322,10 @@
 			path = LeftMenu;
 			sourceTree = "<group>";
 		};
-		93BB3EE918C205B2007F9FD2 /* News */ = {
-			isa = PBXGroup;
-			children = (
-				93BB3EEA18C205B2007F9FD2 /* CustomCells */,
-				93BB3EF418C205B2007F9FD2 /* NewsDetailViewController.h */,
-				93BB3EF518C205B2007F9FD2 /* NewsDetailViewController.m */,
-				93BB3EF618C205B2007F9FD2 /* NewsDetailViewController.xib */,
-				93BB3EF718C205B2007F9FD2 /* NewsViewController.h */,
-				93BB3EF818C205B2007F9FD2 /* NewsViewController.m */,
-				93BB3EF918C205B2007F9FD2 /* NewsViewController.xib */,
-			);
-			path = News;
-			sourceTree = "<group>";
-		};
-		93BB3EEA18C205B2007F9FD2 /* CustomCells */ = {
-			isa = PBXGroup;
-			children = (
-				93BB3EEB18C205B2007F9FD2 /* CustomCellNews.h */,
-				93BB3EEC18C205B2007F9FD2 /* CustomCellNews.m */,
-				93BB3EED18C205B2007F9FD2 /* CustomCellNews.xib */,
-				93BB3EEE18C205B2007F9FD2 /* NewsCustomCell.h */,
-				93BB3EEF18C205B2007F9FD2 /* NewsCustomCell.m */,
-				93BB3EF018C205B2007F9FD2 /* NewsCustomCell.xib */,
-				93BB3EF118C205B2007F9FD2 /* NewsHeadlineCell.h */,
-				93BB3EF218C205B2007F9FD2 /* NewsHeadlineCell.m */,
-				93BB3EF318C205B2007F9FD2 /* NewsHeadlineCell.xib */,
-			);
-			path = CustomCells;
-			sourceTree = "<group>";
-		};
 		93BB3EFE18C205B2007F9FD2 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
 				93BB3EFF18C205B2007F9FD2 /* AFNetworking-1.0.1 */,
-				93BB3F1318C205B2007F9FD2 /* EstimoteSDK */,
-				93BB3F1B18C205B2007F9FD2 /* getNews.h */,
-				93BB3F1C18C205B2007F9FD2 /* getNews.m */,
-				93BB3F1D18C205B2007F9FD2 /* ImageCache.h */,
-				93BB3F1E18C205B2007F9FD2 /* ImageCache.m */,
 				93BB3F2118C205B2007F9FD2 /* MMDrawerController */,
 				93BB3F2F18C205B2007F9FD2 /* NSDictionary+Utility.h */,
 				93BB3F3018C205B2007F9FD2 /* NSDictionary+Utility.m */,
@@ -441,27 +359,6 @@
 			path = "AFNetworking-1.0.1";
 			sourceTree = "<group>";
 		};
-		93BB3F1318C205B2007F9FD2 /* EstimoteSDK */ = {
-			isa = PBXGroup;
-			children = (
-				93BB3F1418C205B2007F9FD2 /* Headers */,
-				93BB3F1A18C205B2007F9FD2 /* libEstimoteSDK.a */,
-			);
-			path = EstimoteSDK;
-			sourceTree = "<group>";
-		};
-		93BB3F1418C205B2007F9FD2 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				93BB3F1518C205B2007F9FD2 /* ESTBeacon.h */,
-				93BB3F1618C205B2007F9FD2 /* ESTBeaconDefinitions.h */,
-				93BB3F1718C205B2007F9FD2 /* ESTBeaconManager.h */,
-				93BB3F1818C205B2007F9FD2 /* ESTBeaconRegion.h */,
-				93BB3F1918C205B2007F9FD2 /* ESTBeaconUpdateInfo.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
 		93BB3F2118C205B2007F9FD2 /* MMDrawerController */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,23 +377,6 @@
 				93BB3F2E18C205B2007F9FD2 /* UIViewController+MMDrawerController.m */,
 			);
 			path = MMDrawerController;
-			sourceTree = "<group>";
-		};
-		93BB3F3118C205B2007F9FD2 /* HTMLTemplates */ = {
-			isa = PBXGroup;
-			children = (
-				93BB3F3218C205B2007F9FD2 /* iPhoneNewsArticle.html */,
-			);
-			path = HTMLTemplates;
-			sourceTree = "<group>";
-		};
-		93BB3F3918C205B2007F9FD2 /* ObjectModels */ = {
-			isa = PBXGroup;
-			children = (
-				93BB3F3A18C205B2007F9FD2 /* NewsEntry.h */,
-				93BB3F3B18C205B2007F9FD2 /* NewsEntry.m */,
-			);
-			path = ObjectModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,22 +442,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93BB3F4A18C205B2007F9FD2 /* NewsDetailViewController.xib in Resources */,
 				93B79F4418C22451000365DC /* ReportStoryboard.storyboard in Resources */,
 				93BB3F6218C205B2007F9FD2 /* Images.xcassets in Resources */,
 				93B79F3518C2203D000365DC /* RoutesWebViewController.xib in Resources */,
 				93B79F5918C23AD5000365DC /* ReportStartViewController.xib in Resources */,
-				93BB3F4D18C205B2007F9FD2 /* InfoPlist.strings in Resources */,
-				93BB3F6318C205B2007F9FD2 /* LeicesterBusApp-Info.plist in Resources */,
-				93BB3F4818C205B2007F9FD2 /* NewsHeadlineCell.xib in Resources */,
 				93B79F3C18C22332000365DC /* AboutViewController.xib in Resources */,
 				93BB3F4118C205B2007F9FD2 /* HomeScreenViewController.xib in Resources */,
 				93B79F4B18C22BE6000365DC /* NearestStopsViewController.xib in Resources */,
 				93B79F3018C21E83000365DC /* RoutesMenuViewController.xib in Resources */,
-				93BB3F4418C205B2007F9FD2 /* CustomCellNews.xib in Resources */,
-				93BB3F4618C205B2007F9FD2 /* NewsCustomCell.xib in Resources */,
-				93BB3F6118C205B2007F9FD2 /* iPhoneNewsArticle.html in Resources */,
-				93BB3F4C18C205B2007F9FD2 /* NewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,12 +468,9 @@
 				93BB3F5018C205B2007F9FD2 /* AFImageRequestOperation.m in Sources */,
 				93B79F6118C26644000365DC /* BusStopLocation.m in Sources */,
 				93BB3F6518C205B2007F9FD2 /* main.m in Sources */,
-				93BB3F5918C205B2007F9FD2 /* ImageCache.m in Sources */,
-				93BB3F6618C205B2007F9FD2 /* NewsEntry.m in Sources */,
 				93BB3F4018C205B2007F9FD2 /* HomeScreenViewController.m in Sources */,
 				93B79F3B18C22332000365DC /* AboutViewController.m in Sources */,
 				93B79F4A18C22BE6000365DC /* NearestStopsViewController.m in Sources */,
-				93BB3F4718C205B2007F9FD2 /* NewsHeadlineCell.m in Sources */,
 				93B79F5818C23AD5000365DC /* ReportStartViewController.m in Sources */,
 				93B79F6418C275E5000365DC /* SelectCompanyTableViewController.m in Sources */,
 				93BB3F5118C205B2007F9FD2 /* AFJSONRequestOperation.m in Sources */,
@@ -609,40 +478,24 @@
 				93B79F4118C2239D000365DC /* ReportViewController.m in Sources */,
 				93BB3F3D18C205B2007F9FD2 /* AppDelegate.m in Sources */,
 				93BB3F5618C205B2007F9FD2 /* UIImageView+AFNetworking.m in Sources */,
-				93BB3F4918C205B2007F9FD2 /* NewsDetailViewController.m in Sources */,
 				93BB3F4E18C205B2007F9FD2 /* AFHTTPClient.m in Sources */,
 				93BB3F5318C205B2007F9FD2 /* AFPropertyListRequestOperation.m in Sources */,
 				93B79F3418C2203D000365DC /* RoutesWebViewController.m in Sources */,
-				93BB3F4518C205B2007F9FD2 /* NewsCustomCell.m in Sources */,
 				93BB3F5C18C205B2007F9FD2 /* MMDrawerVisualState.m in Sources */,
 				93BB3F5A18C205B2007F9FD2 /* MMDrawerBarButtonItem.m in Sources */,
 				93BB3F5B18C205B2007F9FD2 /* MMDrawerController.m in Sources */,
 				93BB3F6018C205B2007F9FD2 /* NSDictionary+Utility.m in Sources */,
 				93B79F5118C235ED000365DC /* BusApiClient.m in Sources */,
-				93BB3F4B18C205B2007F9FD2 /* NewsViewController.m in Sources */,
 				93BB3F4218C205B2007F9FD2 /* MenuViewController.m in Sources */,
 				93B79F5E18C265C9000365DC /* BusStopAnnotation.m in Sources */,
-				93BB3F4318C205B2007F9FD2 /* CustomCellNews.m in Sources */,
 				93BB3F5218C205B2007F9FD2 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				93BB3F4F18C205B2007F9FD2 /* AFHTTPRequestOperation.m in Sources */,
-				93BB3F5818C205B2007F9FD2 /* getNews.m in Sources */,
 				93B79F5418C23695000365DC /* Reachability.m in Sources */,
 				93BB3F5518C205B2007F9FD2 /* AFXMLRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		93BB3EFC18C205B2007F9FD2 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93BB3EFD18C205B2007F9FD2 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9314FDC518ACF5610021695D /* Debug */ = {
@@ -725,11 +578,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeicesterBusApp/LeicesterBusApp-Prefix.pch";
 				INFOPLIST_FILE = "LeicesterBusApp/LeicesterBusApp-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/aaron/Dropbox/iPhoneApps/client\\ work/WellgoshNew/CMA/Externals/EstimoteSDK",
-					/Users/aaron/Desktop/BusApp/LeicesterBusApp/Externals/EstimoteSDK,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = LeicesterBusApp;
 				WRAPPER_EXTENSION = app;
 			};
@@ -743,11 +592,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeicesterBusApp/LeicesterBusApp-Prefix.pch";
 				INFOPLIST_FILE = "LeicesterBusApp/LeicesterBusApp-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/aaron/Dropbox/iPhoneApps/client\\ work/WellgoshNew/CMA/Externals/EstimoteSDK",
-					/Users/aaron/Desktop/BusApp/LeicesterBusApp/Externals/EstimoteSDK,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = LeicesterBusApp;
 				WRAPPER_EXTENSION = app;
 			};

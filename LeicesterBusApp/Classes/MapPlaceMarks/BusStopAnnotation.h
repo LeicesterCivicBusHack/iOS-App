@@ -15,6 +15,7 @@
 @property (copy) NSString *commonName;
 @property (copy) NSString *landMark;
 
+
 @property (nonatomic, strong) BusStopLocation *locationObject;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 

@@ -28,39 +28,67 @@
 
 #pragma mark - 
 - (void)sendReport {
-    
-   
-    
-    NSString *strLongitude = [NSString stringWithFormat:@"%f", _longitude];
-    NSString *strLatitude = [NSString stringWithFormat:@"%f", _latitude];
-    
-    // mistabus.subora.com:3000/stops?latitude=52.630365&longitude=-1.150311
-    
     if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
         
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                        
-                                       _busCompany, @"busCo",
-                                       _routeNumber, @"routeNumber",
-                                       _expectedTime, @"expectedTime",
-                                       strLongitude, @"longitude",
-                                       strLatitude, @"latitude", nil];
-        
-        NSLog(@"Params %@", params);
+                                       _busStopLocation.locationID, @"loc", nil];
         
         
-        [[BusApiClient sharedInstance] commandWithParams:params apiURL:@"http://mistabus.subora.com:3000/stops"  onCompletion:^(NSDictionary *json) {
-
-            NSLog(@"API Response %@", json);
+        [[BusApiClient sharedInstance] commandWithParams:params apiURL:@"postdelay.json"  onCompletion:^(NSDictionary *json) {
+            
+            NSString *delID = [json objectForKey:@"id"];
+            _lblTrackingID.text = delID;
             
         } onFailure:^(NSDictionary *json) {
-            NSLog(@"Error ");
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error unable to submit data to web service." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             
             [alert show];
         }];
     }    
 }
+
+-(IBAction)btnStillWaiting:(id)sender {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   _lblTrackingID.text, @"del", nil];
+    
+    
+    
+    [[BusApiClient sharedInstance] commandWithParams:params apiURL:@"updatedelay.json"  onCompletion:^(NSDictionary *json) {
+    } onFailure:^(NSDictionary *json) {
+        NSLog(@"Error Received %@", json);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error unable to submit data to web service." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
+}
+
+-(IBAction)btnBusArrived:(id)sender {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   
+                                   _lblTrackingID.text, @"del",
+                                   @"1", @"fin", nil];
+    
+    [[BusApiClient sharedInstance] commandWithParams:params apiURL:@"updatedelay.json"  onCompletion:^(NSDictionary *json) {
+    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Thanks" message:@"Thanks for your report" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        
+        [alert show];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        
+    } onFailure:^(NSDictionary *json) {
+        NSLog(@"Error Received %@", json);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error unable to submit data to web service." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }];
+
+}
+
+
 
 
 -(IBAction)btnStop:(id)sender {
@@ -75,12 +103,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib
-    
-    NSLog(@"Bus Number = %@", _routeNumber);
-    NSLog(@"Company Name = %@", _busCompany);
-    NSLog(@"Longitude = %f", _longitude);
-    NSLog(@"Latitude = %f", _latitude);
-    NSLog(@"Expected Time %@", _expectedTime);
     
     [self sendReport];
 }

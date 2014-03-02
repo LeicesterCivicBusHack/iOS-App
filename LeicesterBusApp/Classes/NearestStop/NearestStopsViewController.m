@@ -122,8 +122,6 @@
             region.span=span;
             region.center=location;
             
-            
-            NSLog(@"Location = Lat = %f, Long = %f", location.latitude, location.longitude);
             [self requestNearestStopsWithLatitude:location.latitude longitude:location.longitude];
             
             [mv setRegion:viewRegion animated:YES];;
@@ -140,37 +138,36 @@
     NSString *strLongitude = [NSString stringWithFormat:@"%f", longitude];
     NSString *strLatitude = [NSString stringWithFormat:@"%f", lat];
     
-    // mistabus.subora.com:3000/stops?latitude=52.630365&longitude=-1.150311
-    
-        if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
+    if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
+        
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+
+                                       strLongitude, @"lng",
+                                       strLatitude, @"lat", nil];
+        
+        NSMutableArray *results = [NSMutableArray array];
+        
+        [[BusApiClient sharedInstance] commandWithParams:params apiURL:@"location.json"  onCompletion:^(NSDictionary *json) {
+            // Loop through response to store
             
-            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                           
-                                           @"-1.150311", @"longitude",
-                                           @"52.630365", @"latitude", nil];
             
-            NSLog(@"Params %@", params);
+            NSLog(@"Json %@", json);
+            for (id item in json) {
+                BusStopLocation *location = [[BusStopLocation alloc] initWithDictionary:item];
+                [results addObject:location];
+            }
             
-            NSMutableArray *results = [NSMutableArray array];
+            _locationData = results;
+            [self plotLocationPositions:@""];
+        } onFailure:^(NSDictionary *json) {
+            NSLog(@"Json Error Message %@", json);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry we was unable to retrieve the nearest bus stops, please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             
-            [[BusApiClient sharedInstance] commandWithParams:params apiURL:@"http://mistabus.subora.com:3000/stops"  onCompletion:^(NSDictionary *json) {
-                // Loop through response to store
-                for (id item in json) {
-                    BusStopLocation *location = [[BusStopLocation alloc] initWithDictionary:item];
-                    [results addObject:location];
-                }
-                
-                _locationData = results;
-                [self plotLocationPositions:@""];
-            } onFailure:^(NSDictionary *json) {
-                NSLog(@"Error ");
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry we was unable to retrieve the nearest bus stops, please try again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                
-                [alert show];
-                
-                
-            }];
-        }
+            [alert show];
+            
+            
+        }];
+    }
 }
 
 
@@ -219,11 +216,88 @@
     pinView.pinColor = MKPinAnnotationColorRed;
     //pinView.image = [UIImage imageNamed:@"map-icon.png"];
     
-    // UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    // pinView.rightCalloutAccessoryView = rightButton;
+    UIButton *rightButton;
+    
+    if (_isAccessedViaReportView) {
+        rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];   //UIButtonTypeDetailDisclosure];
+    } else {
+        rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }
+    
+     pinView.rightCalloutAccessoryView = rightButton;
  
     return pinView;
 }
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
+    
+    BusStopAnnotation *annotation = (BusStopAnnotation *)view.annotation;
+    BusStopLocation *item = annotation.locationObject;
+
+    
+    
+    if (_isAccessedViaReportView) {
+        // Pass data back to the Report View;
+        [self.delegate getSelectedBusLocation:item];
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        // Offer Navigation Options
+        _selectedLocation = item;
+        _coordinate = annotation.coordinate;
+        
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Get Directions", nil];
+        
+        [actionSheet showInView:self.view];
+        
+    }
+
+    
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+        {
+            NSNumber * latitude =  [NSNumber numberWithDouble:_coordinate.latitude];
+            NSNumber * longitude = [NSNumber numberWithDouble:_coordinate.longitude];
+            
+            
+            CLLocationCoordinate2D coordinate;
+            coordinate.latitude =  longitude.doubleValue;
+            coordinate.longitude = latitude.doubleValue;
+            
+            
+            Class mapItemClass = [MKMapItem class];
+            if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+            {
+                
+                MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:_coordinate
+                                                               addressDictionary:nil];
+                MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+                [mapItem setName:_selectedLocation.commonName];
+                // Pass the map item to the Maps app
+                
+                
+                
+                [mapItem openInMapsWithLaunchOptions:@{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeWalking}];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Directions Unavailable" message:@"Sorry it seems your device does not support this feature." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            
+        }
+            break;
+        default:
+            break;
+    }
+    
+    _selectedLocation = nil;
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

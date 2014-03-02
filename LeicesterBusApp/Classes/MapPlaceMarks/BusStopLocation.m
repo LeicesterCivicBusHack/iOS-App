@@ -16,11 +16,12 @@
     self = [super init];
     if (self) {
  
-        _commonName = [dictionary objectForKeyNotNull:@"CommonName"];
-        _landMark = [dictionary objectForKeyNotNull:@"Landmark"];
-        _longitude = [dictionary objectForKeyNotNull:@"Latitude"];
-        _latitude = [dictionary objectForKeyNotNull:@"Longitude"];
+        _commonName = [dictionary objectForKeyNotNull:@"name"];
+        _landMark = [dictionary objectForKeyNotNull:@"locality"];
+        _longitude = [dictionary objectForKeyNotNull:@"latitude"];
+        _latitude = [dictionary objectForKeyNotNull:@"longitude"];
         _distance = [dictionary objectForKeyNotNull:@"distance"];
+        _locationID = [dictionary objectForKeyNotNull:@"id"];
     }
     
     return self;
