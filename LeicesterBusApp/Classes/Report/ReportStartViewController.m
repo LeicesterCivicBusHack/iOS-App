@@ -31,23 +31,35 @@
     
    
     
+    NSString *strLongitude = [NSString stringWithFormat:@"%f", _longitude];
+    NSString *strLatitude = [NSString stringWithFormat:@"%f", _latitude];
+    
+    // mistabus.subora.com:3000/stops?latitude=52.630365&longitude=-1.150311
     
     if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
         
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                       @"nearest",@"command",
-                                       @"-1.150311", @"long",
-                                       @"52.630365", @"lat", nil];
+                                       
+                                       _busCompany, @"busCo",
+                                       _routeNumber, @"routeNumber",
+                                       _expectedTime, @"expectedTime",
+                                       strLongitude, @"longitude",
+                                       strLatitude, @"latitude", nil];
         
         NSLog(@"Params %@", params);
         
-        [[BusApiClient sharedInstance] commandWithParams:params onCompletion:^(NSDictionary *json) {
-            NSLog(@"Json Response %@", json);
+        
+        [[BusApiClient sharedInstance] commandWithParams:params apiURL:@"http://mistabus.subora.com:3000/stops"  onCompletion:^(NSDictionary *json) {
+
+            NSLog(@"API Response %@", json);
+            
+        } onFailure:^(NSDictionary *json) {
+            NSLog(@"Error ");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error unable to submit data to web service." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [alert show];
         }];
-    }
-    
-    
-    
+    }    
 }
 
 

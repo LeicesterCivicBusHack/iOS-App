@@ -62,7 +62,7 @@
     }
 }
 
--(void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock onFailure:(JSONResponseBlock)failureBlock {
+-(void)commandWithParams:(NSMutableDictionary *)params apiURL:(NSString *)apiURL onCompletion:(JSONResponseBlock)completionBlock onFailure:(JSONResponseBlock)failureBlock {
     
 //    NSData* uploadFile = nil;
 //    if ([params objectForKey:@"file"]) {
@@ -85,7 +85,7 @@
 
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
     
-    NSMutableURLRequest *apiRequest = [httpClient requestWithMethod:@"GET" path:@"http://mistabus.subora.com:3000/stops" parameters:params];
+    NSMutableURLRequest *apiRequest = [httpClient requestWithMethod:@"GET" path:apiURL parameters:params];
     
     
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:apiRequest];
@@ -93,9 +93,7 @@
         //success!
         completionBlock(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //failure :(
         failureBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
-        //        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
     }];
     
     [operation start];
@@ -103,53 +101,6 @@
 }
 
 
--(void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock
-{
-//    NSData* uploadFile = nil;
-//    if ([params objectForKey:@"file"]) {
-//        uploadFile = (NSData*)[params objectForKey:@"file"];
-//        [params removeObjectForKey:@"file"];
-//    }
-    
-    /*
-     Attach the MD5 Key which was captured during login
-     */
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSString *key = [defaults objectForKey:@"key"];
-//    
-//    if ([key length] != 0) {
-//        [params setObject:key forKey:@"key"];
-//    }
-    
-    
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
 
-    NSMutableURLRequest *apiRequest = [httpClient requestWithMethod:@"GET" path:@"http://mistabus.subora.com:3000/stops" parameters:params];
-    
-   
-//    [self multipartFormRequestWithMethod:@"GET"
-//                                    path:kAPIPath parameters:params
-//               constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
-////                   if (uploadFile) {
-////                       [formData appendPartWithFileData:uploadFile
-////                                                   name:@"user_file"
-////                                               fileName:@"photo.jpg"
-////                                               mimeType:@"image/jpeg"];
-////                   }
-//               }];
-    
-    AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:apiRequest];
-    [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        completionBlock(responseObject);
-    
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
-    }];
-    
-    [operation start];
-    
-}
 
 @end

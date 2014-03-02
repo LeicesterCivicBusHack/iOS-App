@@ -21,9 +21,8 @@ typedef void (^JSONResponseBlock)(NSDictionary* json);
 
 -(BOOL)isAuthorized;
 
--(void)commandWithParams:(NSMutableDictionary*)params onCompletion:(JSONResponseBlock)completionBlock;
 
--(void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock onFailure:(JSONResponseBlock)failureBlock;
+-(void)commandWithParams:(NSMutableDictionary *)params apiURL:(NSString *)apiURL onCompletion:(JSONResponseBlock)completionBlock onFailure:(JSONResponseBlock)failureBlock;
 
 -(BOOL)isNetworkAvailable;
 

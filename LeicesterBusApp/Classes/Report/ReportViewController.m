@@ -186,19 +186,19 @@
 
 - (void)sendReport {
     
-    if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
-        
-        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                       @"nearest",@"command",
-                                       @"", @"long",
-                                       @"", @"lat", nil];
-        
-        NSLog(@"Params %@", params);
-        
-        [[BusApiClient sharedInstance] commandWithParams:params onCompletion:^(NSDictionary *json) {
-            NSLog(@"Json Response %@", json);
-        }];
-    }
+//    if ([[BusApiClient sharedInstance] isNetworkAvailable]) {
+//        
+//        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+//                                       @"nearest",@"command",
+//                                       @"", @"long",
+//                                       @"", @"lat", nil];
+//        
+//        NSLog(@"Params %@", params);
+//        
+//        [[BusApiClient sharedInstance] commandWithParams:params onCompletion:^(NSDictionary *json) {
+//            NSLog(@"Json Response %@", json);
+//        }];
+//    }
 }
 
 

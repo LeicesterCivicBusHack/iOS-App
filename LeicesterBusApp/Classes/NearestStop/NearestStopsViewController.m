@@ -129,7 +129,7 @@
             
             NSMutableArray *results = [NSMutableArray array];
             
-            [[BusApiClient sharedInstance] commandWithParams:params onCompletion:^(NSDictionary *json) {
+            [[BusApiClient sharedInstance] commandWithParams:params apiURL:@"http://mistabus.subora.com:3000/stops"  onCompletion:^(NSDictionary *json) {
                 // Loop through response to store
                 for (id item in json) {
                     BusStopLocation *location = [[BusStopLocation alloc] initWithDictionary:item];
