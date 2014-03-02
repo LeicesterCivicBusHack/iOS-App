@@ -142,7 +142,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="8D6-03-LAb" kind="modal" identifier="startButton" id="gh3-XA-a6w"/>
+                                                        <action selector="btnStart:" destination="onF-wa-m07" eventType="touchUpInside" id="eDs-QE-dkm"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -162,11 +162,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="labelSelectedTime" destination="HDS-jl-YQD" id="YaZ-sb-ZT0"/>
                         <outlet property="lblBusCompany" destination="216-3q-xJS" id="UQx-YX-JaI"/>
                         <outlet property="txtBusNumber" destination="Z2A-WO-7BA" id="a7z-hc-fAs"/>
+                        <segue destination="8D6-03-LAb" kind="modal" identifier="startTapped" id="Nsc-L5-pp7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phy-h5-DhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1" y="29"/>
+            <point key="canvasLocation" x="-89" y="57"/>
         </scene>
         <!--Report Start View Controller-->
         <scene sceneID="XFE-HP-e4L">

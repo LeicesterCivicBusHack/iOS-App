@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SelectCompanyTableViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
 
-@interface ReportViewController : UITableViewController <SelectCompanyDelegate>
+@interface ReportViewController : UITableViewController <SelectCompanyDelegate, CLLocationManagerDelegate> {
+    
+    CLLocationManager *locationManager;
+}
 
 @property (assign) BOOL datePickerIsShowing;
 @property (nonatomic, weak) IBOutlet UILabel *labelSelectedTime;
@@ -22,9 +26,12 @@
 
 @property (nonatomic, weak) IBOutlet UITextField *txtBusNumber;
 @property (nonatomic, weak) IBOutlet UILabel *lblBusCompany;
-
+@property (assign) CGFloat longitude;
+@property (assign) CGFloat latitude;
 
 -(IBAction)pickerDateChanged:(UIDatePicker *)sender;
+
+-(IBAction)btnStart:(id)sender;
 
 
 @end

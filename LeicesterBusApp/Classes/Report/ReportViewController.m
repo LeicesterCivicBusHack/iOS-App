@@ -48,6 +48,45 @@
     _datePicker.maximumDate = [NSDate date];
     self.datePicker.alpha = 0.0f;
     self.datePicker.hidden = YES;
+    
+    locationManager = [[CLLocationManager alloc] init];
+    
+    [self getCurrentLocation];
+}
+
+- (void)getCurrentLocation {
+
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
+}
+
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        _latitude = currentLocation.coordinate.latitude;
+        _longitude = currentLocation.coordinate.longitude;
+        
+        NSLog(@"Longitude %@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
+        NSLog(@"Latitude %@",  [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
+    }
+    
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -159,9 +198,25 @@
             NSLog(@"Json Response %@", json);
         }];
     }
+}
+
+
+- (IBAction)btnStart:(id)sender {
+    
+    if ((_longitude == 0) || (_latitude == 0)) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"GPS Error" message:@"Unable to determine location please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    } else {
+        
+        [self performSegueWithIdentifier:@"startTapped" sender:nil];
+        
+    }
+        
     
     
-      
 }
 
 
@@ -169,6 +224,8 @@
     
     if ([[segue identifier] isEqualToString:@"startButton"]) {
         NSLog(@"Start Tapped");
+        
+        
     }
     
     
